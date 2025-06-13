@@ -1,0 +1,47 @@
+ <!-- Copyright 2019 VMware, Inc.
+SPDX-License-Identifier: BSD-2-Clause -->   
+
+  <form clrForm [formGroup]="editUserForm">
+
+    <clr-control-container>
+        <label>UserName</label>
+        <input clrControl placeholder="Username" formControlName="username"/>
+        <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+    </clr-control-container>
+
+    <clr-control-container>
+        <label>Email</label>
+        <input clrControl placeholder="Email" formControlName="email" />
+        <clr-control-helper>Email should be a valid email address like name@example.com.</clr-control-helper>
+        <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+        <clr-control-error *clrIfError="'email'">Email should be a valid email address like name@example.com.</clr-control-error>
+    </clr-control-container>
+
+    <clr-password-container>
+        <label>Password</label>
+        <input placeholder="Password" clrPassword formControlName="password" name="password"/>
+        <clr-control-helper> Password should be 8-20 characters long with at least 1 uppercase, 1 lowercase and 1 number.</clr-control-helper>
+        <clr-control-error *clrIfError="'pattern'"> Password should be 8-20 characters long with at least 1 uppercase, 1 lowercase and 1 number.</clr-control-error>
+    </clr-password-container>
+
+    <clr-password-container>
+        <label>Confirm Password</label>
+        <input placeholder="Confirm Password"  clrPassword formControlName="repassword"  name="repassword" />
+        <clr-control-helper> Password should be 8-20 characters long with at least 1 uppercase, 1 lowercase and 1 number.</clr-control-helper>
+        <clr-control-error *clrIfError="'mismatch'">Passwords do not match.</clr-control-error>
+    </clr-password-container>
+        
+    <div style="margin-top: 50px;">
+        <button type="submit" class="btn btn-primary" on-click="save()" [disabled]="editUserForm.invalid">Submit</button>
+        <button type="button" class="btn btn-primary" on-click="back()">Back</button>
+    </div>
+</form>
+<clr-modal [(clrModalOpen)]="basic" [clrModalStaticBackdrop]="true">
+    <h3 class="modal-title">Operation tips</h3>
+    <div class="modal-body">
+        <p>{{modal}}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="close()">Close</button> 
+    </div>
+</clr-modal>

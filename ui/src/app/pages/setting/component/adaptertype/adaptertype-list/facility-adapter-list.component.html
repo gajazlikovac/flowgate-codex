@@ -1,0 +1,507 @@
+<!-- Copyright 2020 VMware, Inc.
+SPDX-License-Identifier: BSD-2-Clause -->
+
+<button class="btn btn-primary btn-icon" style="margin-right: 12px" (click)="addAdapterType()" >
+  <clr-icon shape="plus">
+    </clr-icon>
+    <font style="vertical-align: inherit;">
+      <font style="vertical-align: inherit;">New Facility Adapter</font>
+     </font>
+</button>
+
+<clr-alert [clrAlertType]="'danger'" [clrAlertClosable]="true" [(clrAlertClosed)] = "deleteErrorClosed">
+    <div class="alert-item">
+        <span>{{deleteErrorMsg}}</span>
+    </div>
+</clr-alert>
+
+<clr-alert [clrAlertType]="alertType" (clrAlertClosedChange)="close()" [clrAlertClosed]= "alertclose">
+    <div class="alert-item">
+          <span class="alert-text">
+              {{alertcontent}}
+          </span>
+    </div>
+</clr-alert>
+
+
+<clr-datagrid [clrDgLoading]="loading" (clrDgRefresh)="refresh($event)">
+
+  <clr-dg-column>Name</clr-dg-column>
+  <clr-dg-column>Description</clr-dg-column>
+  <clr-dg-placeholder>We couldn't find any facility adapter!</clr-dg-placeholder>
+
+
+<clr-dg-row *ngFor="let adapter of adapters">
+    <clr-dg-action-overflow>
+        <button class="action-item"  (click)="onEditAdapter(adapter)" >Edit</button>
+        <button class="action-item"  (click)="deleteAdapter(adapter.id)" >Delete</button>
+        <button class="action-item"  (click)="showDetail(adapter)" >Show Detail</button>
+    </clr-dg-action-overflow>
+      <clr-dg-cell>{{adapter.displayName}}</clr-dg-cell>
+      <clr-dg-cell>{{adapter.description}}</clr-dg-cell>
+</clr-dg-row>
+
+<clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10" [clrDgTotalItems] = "totalItems">
+    <clr-dg-page-size [clrPageSizeOptions]="[10,20,50]">Facility Adapters per page</clr-dg-page-size>
+    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+    of {{pagination.totalItems}} Facility Adapters
+    </clr-dg-pagination>
+</clr-dg-footer>
+
+</clr-datagrid>
+
+<clr-wizard #addFacilityAdapterwizard [(clrWizardOpen)]="addFacilityAdapterOpen">
+    <clr-wizard-title>New Facility Adapter</clr-wizard-title>
+
+    <clr-wizard-button [type]="'cancel'">Close</clr-wizard-button>
+    <clr-wizard-button [type]="'previous'">Previous</clr-wizard-button>
+    <clr-wizard-button [type]="'next'" (click)="baseSetting()">Next</clr-wizard-button>
+    <clr-wizard-button [type]="'finish'" >Done</clr-wizard-button>
+
+    <clr-wizard-page [clrWizardPageNextDisabled]="!formPageOne.valid">
+        <ng-template clrPageTitle>Create</ng-template>
+        <form clrForm [formGroup]="formPageOne" >
+
+            <clr-select-container>
+               <label>Type</label>
+               <select clrSelect name="options" formControlName="type" style="width: 220px;">
+                    <option value="OtherCMDB">CMDB</option>
+                    <option value="OtherDCIM">DCIM</option>
+               </select>
+               <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+           </clr-select-container>
+           <clr-control-container>
+               <label>Display Name</label>
+               <input clrControl placeholder="Display Name" formControlName="displayName" style="width: 220px;"/>
+               <clr-control-helper>{{Command_Name}}</clr-control-helper>
+               <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+               <clr-control-error *clrIfError="'pattern'">{{Command_Name}}</clr-control-error>
+           </clr-control-container>
+           <clr-textarea-container>
+            <label>Description</label>
+            <textarea clrTextarea  placeholder="description" formControlName="description"></textarea>
+          </clr-textarea-container>
+        </form>
+    </clr-wizard-page>
+
+    <clr-wizard-page [clrWizardPageNextDisabled]="!formPageOne.valid">
+        <ng-template clrPageTitle>Config adapter</ng-template>
+        <ng-template clrPageNavTitle>
+            Config
+        </ng-template>
+        <clr-alert [clrAlertType]="'alert-info'" [clrAlertClosable]="false">
+            <div class="alert-item">
+               <span>{{Command_Description}}</span>
+            </div>
+        </clr-alert>
+        <button class="btn btn-primary" style="margin-bottom: -15px;" (click)="openAddCommand()"><clr-icon shape="plus">
+        </clr-icon>{{Add_Command}}</button>
+        <clr-datagrid>
+            <clr-dg-column>Name</clr-dg-column>
+            <clr-dg-column>Description</clr-dg-column>
+            <clr-dg-column>Trigger Cycle</clr-dg-column>
+
+            <clr-dg-row *ngFor="let command of predefineAdapterCommands">
+                <clr-dg-action-overflow>
+                    <button class="action-item"  (click)="onEdit(command)" >Edit</button>
+                    <button class="action-item" [disabled]="checkIsPredefineData(command)" (click)="onDelete(command)" >Delete</button>
+                </clr-dg-action-overflow>
+                <clr-dg-cell>{{command.command}}</clr-dg-cell>
+                <clr-dg-cell title="{{command.description}}" style="max-width: 300px;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;">{{command.description}}</clr-dg-cell>
+                <clr-dg-cell>{{command.triggerCycle}} minutes</clr-dg-cell>
+            </clr-dg-row>
+        </clr-datagrid>
+
+        <form clrForm [formGroup]="commandForm" *ngIf="onAdd">
+            <clr-alert [clrAlertType]="'danger'" [clrAlertClosable]="true" [(clrAlertClosed)] = "addCommandErrorClosed">
+                <div class="alert-item">
+                    <span>{{Duplicate_Command_Name}}</span>
+                </div>
+            </clr-alert>
+            <clr-control-container>
+                <label>Name</label>
+                <input clrControl placeholder="Name" formControlName="command" style="width: 220px;"/>
+                <clr-control-helper>{{Command_Name}}</clr-control-helper>
+                <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+                <clr-control-error *clrIfError="'pattern'">{{Command_Name}}</clr-control-error>
+            </clr-control-container>
+            <div class="clr-row">
+                <div class="clr-col-12">
+                    <clr-control-container>
+                        <label>TriggerCycle</label>
+                        <input clrControl type="number" placeholder="Trigger Cycle" formControlName="triggerCycle" style="width: 220px;"/>
+                        <clr-control-helper>{{Trigger_Cycle_Number}}</clr-control-helper>
+                        <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+                        <clr-control-error *clrIfError="'mismatch'">{{Trigger_Cycle_Number}}</clr-control-error>
+                    </clr-control-container>
+                </div>
+                <div class="clr-col-2" style=" margin-left: -52%; margin-top: -3px;">
+                    <clr-select-container>
+                        <select clrSelect name="options">
+                            <option>Minute</option>
+                        </select>
+                    </clr-select-container>
+                </div>
+            </div>
+           <clr-textarea-container>
+            <label>Description</label>
+            <textarea clrTextarea  placeholder="description" formControlName="description"></textarea>
+          </clr-textarea-container>
+          <div class="clr-row" style="margin-top: 20px;">
+            <button type="submit" [clrLoading]="addNewCommandSubmitLoading" class="btn btn-primary" on-click="addNewCommand()" [disabled]="commandForm.invalid">Add</button>
+            <button type="button" class="btn btn-primary" on-click="resetNewCommandForm()">Close</button>
+          </div>
+
+        </form>
+
+        <form clrForm [formGroup]="commandEditForm" *ngIf="onedit">
+            <clr-control-container>
+                <label>Name</label>
+                <input clrControl placeholder="Name" readonly formControlName="command" style="width: 220px;"/>
+                <clr-control-helper>{{Command_Name}}</clr-control-helper>
+                <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+                <clr-control-error *clrIfError="'pattern'">{{Command_Name}}</clr-control-error>
+            </clr-control-container>
+            <div class="clr-row">
+                <div class="clr-col-12">
+                    <clr-control-container>
+                        <label>TriggerCycle</label>
+                        <input clrControl type="number" placeholder="Trigger Cycle" formControlName="triggerCycle" style="width: 220px;"/>
+                        <clr-control-helper>{{Trigger_Cycle_Number}}</clr-control-helper>
+                        <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+                        <clr-control-error *clrIfError="'mismatch'">{{Trigger_Cycle_Number}}</clr-control-error>
+                    </clr-control-container>
+                </div>
+                <div class="clr-col-2" style=" margin-left: -52%; margin-top: -3px;">
+                    <clr-select-container>
+                        <select clrSelect name="options">
+                            <option>Minute</option>
+                        </select>
+                    </clr-select-container>
+                </div>
+            </div>
+           <clr-textarea-container>
+            <label>Description</label>
+            <textarea clrTextarea  placeholder="description" formControlName="description"></textarea>
+          </clr-textarea-container>
+          <div class="clr-row" style="margin-top: 20px;">
+            <button type="submit" [clrLoading]="editCommandSubmitLoading" class="btn btn-primary" on-click="saveEditCommand()" [disabled]="commandEditForm.invalid">Add</button>
+            <button type="button" class="btn btn-primary" on-click="resetEditCommandForm()">Close</button>
+          </div>
+
+        </form>
+    </clr-wizard-page>
+
+    <clr-wizard-page [clrWizardPageNextDisabled]="!formPageOne.valid"
+    clrWizardPagePreventDefault="true"
+    (clrWizardPageOnCancel)="addAdapterDoCancel()"
+    (clrWizardPagePrevious)="addAdapterGoBack()"
+    (clrWizardPageOnCommit)="saveNewAdapter()">
+        <ng-template clrPageTitle>Go to complete!</ng-template>
+        <ng-template clrPageNavTitle>
+            Complete
+        </ng-template>
+        <clr-alert [clrAlertType]="'danger'" [clrAlertClosable]="true" [(clrAlertClosed)] = "addErrorClosed">
+            <div class="alert-item">
+                <span>{{addErrorMsg}}</span>
+            </div>
+        </clr-alert>
+        <div class="spinner" *ngIf="addLoadingFlag">
+            Loading...
+        </div>
+        <div *ngIf="formPageOne.valid">
+
+            <form clrForm>
+                <h4 style="margin-top: 0px;">Your information</h4>
+                <section class="form-block">
+                    <clr-control-container>
+                        <label>Type:</label>
+                        <span>{{translateTypeName(newFacilityAdapter.type)}}</span>
+                    </clr-control-container>
+                    <clr-control-container>
+                        <label>Display name:</label>
+                        <span>{{newFacilityAdapter.displayName }}</span>
+                    </clr-control-container>
+
+                    <clr-textarea-container>
+                        <label>Description</label>
+                        <textarea clrTextarea  placeholder="description" [(ngModel)]="newFacilityAdapter.description" name="description" readonly></textarea>
+                    </clr-textarea-container>
+
+                   <clr-control-container>
+                        <label>Commands:</label>
+                        <clr-datagrid style="width: 200%;">
+                            <clr-dg-column>Name</clr-dg-column>
+                            <clr-dg-column>Description</clr-dg-column>
+                            <clr-dg-column>Trigger Cycle</clr-dg-column>
+
+                            <clr-dg-row *ngFor="let command of predefineAdapterCommands">
+                                <clr-dg-cell>{{command.command}}</clr-dg-cell>
+                                <clr-dg-cell title="{{command.description}}" style="max-width: 300px;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;">{{command.description}}</clr-dg-cell>
+                                <clr-dg-cell>{{command.triggerCycle}} minutes</clr-dg-cell>
+                            </clr-dg-row>
+                        </clr-datagrid>
+                    </clr-control-container>
+                </section>
+            </form>
+        </div>
+    </clr-wizard-page>
+</clr-wizard>
+<clr-wizard #editFacilityAdapterwizard [(clrWizardOpen)]="editFacilityAdapterOpen">
+    <clr-wizard-title>Edit Facility Adapter</clr-wizard-title>
+
+    <clr-wizard-button [type]="'cancel'">Close</clr-wizard-button>
+    <clr-wizard-button [type]="'previous'">Previous</clr-wizard-button>
+    <clr-wizard-button [type]="'next'"  (click)="reinitadapterValue()">Next</clr-wizard-button>
+    <clr-wizard-button [type]="'finish'" >Done</clr-wizard-button>
+
+    <clr-wizard-page [clrWizardPageNextDisabled]="!editformPageOne.valid">
+        <ng-template clrPageTitle>Create</ng-template>
+        <form clrForm [formGroup]="editformPageOne">
+            <section class="form-block">
+                <clr-select-container>
+                    <label>Type</label>
+                    <select clrSelect name="options" formControlName="type" style="width: 220px;">
+                         <option value="OtherCMDB">CMDB</option>
+                         <option value="OtherDCIM">DCIM</option>
+                    </select>
+                    <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+                </clr-select-container>
+                <clr-control-container>
+                    <label>Display Name</label>
+                    <input clrControl placeholder="Display Name" formControlName="displayName" style="width: 220px;"/>
+                    <clr-control-helper>{{Command_Name}}</clr-control-helper>
+                    <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+                    <clr-control-error *clrIfError="'pattern'">{{Command_Name}}</clr-control-error>
+                </clr-control-container>
+                <clr-textarea-container>
+                 <label>Description</label>
+                 <textarea clrTextarea  placeholder="description" formControlName="description"></textarea>
+               </clr-textarea-container>
+            </section>
+        </form>
+    </clr-wizard-page>
+
+    <clr-wizard-page [clrWizardPageNextDisabled]="!editformPageOne.valid">
+        <ng-template clrPageTitle>Config adapter</ng-template>
+        <ng-template clrPageNavTitle>
+            Config
+        </ng-template>
+        <clr-alert [clrAlertType]="'alert-info'" [clrAlertClosable]="false">
+            <div class="alert-item">
+               <span>{{Command_Description}}</span>
+            </div>
+        </clr-alert>
+        <button class="btn btn-primary" style="margin-bottom: -15px;" (click)="openAddCommandForEditAdapter()"><clr-icon shape="plus">
+        </clr-icon>{{Add_Command}}</button>
+        <clr-datagrid>
+            <clr-dg-column>Name</clr-dg-column>
+            <clr-dg-column>Description</clr-dg-column>
+            <clr-dg-column>Trigger Cycle</clr-dg-column>
+
+            <clr-dg-row *ngFor="let command of predefineAdapterCommandsForEditAdapter">
+                <clr-dg-action-overflow>
+                    <button class="action-item"  (click)="onEditForEditAdapter(command)" >Edit</button>
+                    <button class="action-item" [disabled]="checkIsPredefineData(command)" (click)="onDeleteForEditAdapter(command)" >Delete</button>
+                </clr-dg-action-overflow>
+                <clr-dg-cell>{{command.command}}</clr-dg-cell>
+                <clr-dg-cell title="{{command.description}}" style="max-width: 300px;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;">{{command.description}}</clr-dg-cell>
+                <clr-dg-cell>{{command.triggerCycle}} minutes</clr-dg-cell>
+            </clr-dg-row>
+        </clr-datagrid>
+        <form clrForm [formGroup]="editAdapterCommandForm" *ngIf="onAddForEditAdapter">
+            <clr-alert [clrAlertType]="'danger'" [clrAlertClosable]="true" [(clrAlertClosed)] = "addCommandErrorClosedForEditAdapter">
+                <div class="alert-item">
+                    <span>{{Duplicate_Command_Name}}</span>
+                </div>
+            </clr-alert>
+            <clr-control-container>
+                <label>Name</label>
+                <input clrControl placeholder="Name" formControlName="command" style="width: 220px;"/>
+                <clr-control-helper>{{Command_Name}}</clr-control-helper>
+                <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+                <clr-control-error *clrIfError="'pattern'">{{Command_Name}}</clr-control-error>
+            </clr-control-container>
+            <div class="clr-row">
+                <div class="clr-col-12">
+                    <clr-control-container>
+                        <label>TriggerCycle</label>
+                        <input clrControl type="number" placeholder="Trigger Cycle" formControlName="triggerCycle" style="width: 220px;"/>
+                        <clr-control-helper>{{Trigger_Cycle_Number}}</clr-control-helper>
+                        <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+                        <clr-control-error *clrIfError="'mismatch'">{{Trigger_Cycle_Number}}</clr-control-error>
+                    </clr-control-container>
+                </div>
+                <div class="clr-col-2" style=" margin-left: -52%; margin-top: -3px;">
+                    <clr-select-container>
+                        <select clrSelect name="options">
+                            <option>Minute</option>
+                        </select>
+                    </clr-select-container>
+                </div>
+            </div>
+           <clr-textarea-container>
+            <label>Description</label>
+            <textarea clrTextarea  placeholder="description" formControlName="description"></textarea>
+          </clr-textarea-container>
+          <div class="clr-row" style="margin-top: 20px;">
+            <button type="submit" [clrLoading]="addNewCommandSubmitLoadingForEditAdapter" class="btn btn-primary" on-click="addNewCommandForEditAdapter()" [disabled]="editAdapterCommandForm.invalid">Add</button>
+            <button type="button" class="btn btn-primary" on-click="resetNewCommandFormForEditAdapter()">Close</button>
+          </div>
+
+        </form>
+        <form clrForm [formGroup]="editCommandFormForEditAdapter" *ngIf="oneditForEditAdapter">
+            <clr-control-container>
+                <label>Name</label>
+                <input clrControl placeholder="Name" readonly formControlName="command" style="width: 220px;"/>
+                <clr-control-helper>{{Command_Name}}</clr-control-helper>
+                <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+                <clr-control-error *clrIfError="'pattern'">{{Command_Name}}</clr-control-error>
+            </clr-control-container>
+            <div class="clr-row">
+                <div class="clr-col-12">
+                    <clr-control-container>
+                        <label>TriggerCycle</label>
+                        <input clrControl type="number" placeholder="Trigger Cycle" formControlName="triggerCycle" style="width: 220px;"/>
+                        <clr-control-helper>{{Trigger_Cycle_Number}}</clr-control-helper>
+                        <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+                        <clr-control-error *clrIfError="'mismatch'">{{Trigger_Cycle_Number}}</clr-control-error>
+                    </clr-control-container>
+                </div>
+                <div class="clr-col-2" style=" margin-left: -52%; margin-top: -3px;">
+                    <clr-select-container>
+                        <select clrSelect name="options">
+                            <option>Minute</option>
+                        </select>
+                    </clr-select-container>
+                </div>
+            </div>
+           <clr-textarea-container>
+            <label>Description</label>
+            <textarea clrTextarea  placeholder="description" formControlName="description"></textarea>
+          </clr-textarea-container>
+          <div class="clr-row" style="margin-top: 20px;">
+            <button type="submit" [clrLoading]="editCommandSubmitLoadingForEditAdapter" class="btn btn-primary" on-click="saveEditCommandForEditAdapter()" [disabled]="editCommandFormForEditAdapter.invalid">Add</button>
+            <button type="button" class="btn btn-primary" on-click="resetEditCommandFormForEditAdapter()">Close</button>
+          </div>
+
+        </form>
+
+    </clr-wizard-page>
+
+    <clr-wizard-page [clrWizardPageNextDisabled]="!editformPageOne.valid"  clrWizardPagePreventDefault="true"
+    (clrWizardPageOnCancel)="doCancel()"
+    (clrWizardPagePrevious)="goBack()"
+    (clrWizardPageOnCommit)="updateAdapter()">
+        <ng-template clrPageTitle>Go to complete</ng-template>
+        <ng-template clrPageNavTitle>
+            Complete
+        </ng-template>
+        <clr-alert [clrAlertType]="'danger'" [clrAlertClosable]="true" [(clrAlertClosed)] = "editErrorClosed">
+            <div class="alert-item">
+                <span>{{editErrorMsg}}</span>
+            </div>
+        </clr-alert>
+        <div class="spinner" *ngIf="loadingFlag">
+            Loading...
+        </div>
+        <div *ngIf="editformPageOne.valid">
+            <form clrForm>
+                <h4 style="margin-top: 0px;">Your information</h4>
+                <section class="form-block">
+                    <clr-control-container>
+                        <label>Type:</label>
+                        <span>{{translateTypeName(editAdapter.type)}}</span>
+                    </clr-control-container>
+                    <clr-control-container>
+                        <label>Display name:</label>
+                        <span>{{editAdapter.displayName }}</span>
+                    </clr-control-container>
+
+                    <clr-textarea-container>
+                        <label>Description</label>
+                        <textarea clrTextarea  placeholder="description" [(ngModel)]="editAdapter.description" name="description" readonly></textarea>
+                    </clr-textarea-container>
+
+                   <clr-control-container>
+                        <label>Commands:</label>
+                        <clr-datagrid style="width: 200%;">
+                            <clr-dg-column>Name</clr-dg-column>
+                            <clr-dg-column>Description</clr-dg-column>
+                            <clr-dg-column>Trigger Cycle</clr-dg-column>
+
+                            <clr-dg-row *ngFor="let command of predefineAdapterCommandsForEditAdapter">
+                                <clr-dg-cell>{{command.command}}</clr-dg-cell>
+                                <clr-dg-cell title="{{command.description}}" style="max-width: 300px;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;">{{command.description}}</clr-dg-cell>
+                                <clr-dg-cell>{{command.triggerCycle}} minutes</clr-dg-cell>
+                            </clr-dg-row>
+                        </clr-datagrid>
+                    </clr-control-container>
+                </section>
+            </form>
+        </div>
+    </clr-wizard-page>
+</clr-wizard>
+
+<clr-modal [(clrModalOpen)]="showDetailPageShow" [clrModalSize]="'lg'">
+    <h3 class="modal-title">Adapter config</h3>
+    <div class="modal-body">
+        <form clrForm>
+            <h4 style="margin-top: 0px;">Your information</h4>
+            <section class="form-block">
+                <clr-control-container>
+                    <label>Type:</label>
+                    <span>{{translateTypeName(showDetaileAdapter.type)}}</span>
+                </clr-control-container>
+                <clr-control-container>
+                    <label>Display Name:</label>
+                    <span>{{showDetaileAdapter.displayName }}</span>
+                </clr-control-container>
+                <clr-control-container>
+                    <label>Topic:</label>
+                    <span>{{showDetaileAdapter.topic }}</span>
+                </clr-control-container>
+                <clr-control-container>
+                    <label>Queue Name:</label>
+                    <span>{{showDetaileAdapter.queueName }}</span>
+                </clr-control-container>
+                <clr-control-container>
+                    <label>Service Key:</label>
+                    <span>{{showDetaileAdapter.serviceKey }}</span>
+                </clr-control-container>
+
+                <clr-textarea-container>
+                    <label>Description</label>
+                    <textarea clrTextarea  placeholder="description" [(ngModel)]="showDetaileAdapter.description" name="description" readonly></textarea>
+                </clr-textarea-container>
+               <clr-control-container>
+                    <label>Commands:</label>
+                    <clr-datagrid>
+                        <clr-dg-column>Name</clr-dg-column>
+                        <clr-dg-column>Description</clr-dg-column>
+                        <clr-dg-column>Trigger Cycle</clr-dg-column>
+
+                        <clr-dg-row *ngFor="let command of showDetaileAdapter.commands">
+                            <clr-dg-cell>{{command.command}}</clr-dg-cell>
+                            <clr-dg-cell title="{{command.description}}" style="max-width: 300px;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;">{{command.description}}</clr-dg-cell>
+                            <clr-dg-cell>{{command.triggerCycle}} minutes</clr-dg-cell>
+                        </clr-dg-row>
+                    </clr-datagrid>
+                </clr-control-container>
+
+            </section>
+        </form>
+    </div>
+</clr-modal>
+
+<clr-modal [(clrModalOpen)]="confirmDeleteShow">
+    <h3 class="modal-title">Operation Tips</h3>
+    <div class="modal-body">
+        <p>{{Delete_Info}}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="cancelDelete()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="comfirmDelete()">Ok</button>
+    </div>
+</clr-modal>

@@ -1,0 +1,163 @@
+<!-- Copyright 2019 VMware, Inc.
+SPDX-License-Identifier: BSD-2-Clause -->
+ <form clrForm [formGroup]="addAssetForm" >
+  <clr-control-container>
+    <label>AssetName</label>
+    <input clrControl placeholder="Asset Name" formControlName="assetName" style="width: 220px;"/>
+    <clr-control-helper>Please input asset Name.</clr-control-helper>
+    <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+  </clr-control-container>
+
+  <clr-select-container>
+    <label>Category</label>
+    <select clrSelect name="options" formControlName="category" style="width: 220px;" (change)="changeType()">
+      <option *ngFor="let item of allcategory" [value]="item">{{item}}</option>
+    </select>
+    <clr-control-helper>Please select a category.</clr-control-helper>
+    <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+  </clr-select-container>
+
+  <clr-select-container *ngIf="addAssetForm.get('category').value =='Sensors' || addAssetForm.get('category').value =='Server'">
+      <label>SubCategory</label>
+      <select clrSelect name="options" formControlName="subCategory" style="width: 220px;">
+      <option *ngFor="let item of suballcategory[addAssetForm.get('category').value]" [value]="item">{{item}}</option>
+      </select>
+      <clr-control-helper>Please select a subCategory.</clr-control-helper>
+      <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+  </clr-select-container>
+
+  <clr-select-container *ngIf="addAssetForm.get('category').value !='Cabinet' ">
+    <label>MountingSide</label>
+    <select clrSelect name="mountingSide" formControlName="mountingSide" style="width: 220px;">
+      <option value="Front">Front</option>
+      <option value="Back">Back</option>
+      <option value="Unmounted">Unmounted</option>
+      <option value="External">External</option>
+    </select>
+    <clr-control-helper>Please select a mounting side.</clr-control-helper>
+    <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+  </clr-select-container>
+
+  <clr-select-container>
+    <label>Status</label>
+    <select clrSelect name="status" formControlName="status" style="width: 220px;">
+      <option value="Planned">Planned</option>
+      <option value="Active">Active</option>
+      <option value="Recycled">Recycled</option>
+      <option value="Decommissioned">Decommissioned</option>
+      <option value="Cancelled">Cancelled</option>
+    </select>
+    <clr-control-helper>Please select a status.</clr-control-helper>
+    <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+  </clr-select-container>
+
+  <clr-control-container>
+    <label>AssetNumber</label>
+    <input clrControl placeholder="AssetNumber" type="number" formControlName="assetNumber" style="width: 220px;"/>
+  </clr-control-container>
+  <clr-control-container>
+    <label>Manufacturer</label>
+    <input clrControl placeholder="Manufacturer" formControlName="manufacturer" style="width: 220px;"/>
+  </clr-control-container>
+  <clr-control-container>
+    <label>Model</label>
+    <input clrControl placeholder="Model" formControlName="model" style="width: 220px;"/>
+  </clr-control-container>
+  <clr-control-container>
+    <label>Serialnumber</label>
+    <input clrControl placeholder="Serialnumber" formControlName="serialnumber" style="width: 220px;"/>
+  </clr-control-container>
+  <clr-control-container>
+    <label>Tag</label>
+    <input clrControl placeholder="Tag" formControlName="tag" style="width: 220px;"/>
+  </clr-control-container>
+  <clr-control-container>
+    <label>CabinetName</label>
+    <input clrControl placeholder="CabinetName" formControlName="cabinetName" style="width: 220px;"/>
+  </clr-control-container>
+
+  <clr-control-container *ngIf="addAssetForm.get('category').value !='Cabinet' ">
+    <label>CabinetUnitPosition</label>
+    <input clrControl placeholder="CabinetUnitPosition" type="number" formControlName="cabinetUnitPosition" style="width: 220px;"/>
+  </clr-control-container>
+
+  <clr-control-container *ngIf="addAssetForm.get('category').value =='Cabinet' ">
+    <label>CabinetAssetNumber</label>
+    <input clrControl placeholder="CabinetAssetNumber" formControlName="cabinetAssetNumber" style="width: 220px;"/>
+  </clr-control-container>
+
+  <clr-control-container *ngIf="addAssetForm.get('category').value =='Cabinet' ">
+    <label>Cabinetsize</label>
+    <input clrControl placeholder="Capacity" type="number" formControlName="capacity" style="width: 220px;"/>
+  </clr-control-container>
+
+  <clr-select-container *ngIf="addAssetForm.get('category').value =='Sensors' ">
+    <label>RealtimeDataUnit</label>
+    <select clrSelect name="assetRealtimeDataSpecUnit" formControlName="unit" style="width: 220px;">
+      <option value="Volts">Volts</option>
+      <option value="Amps">Amps</option>
+      <option value="KW">KW</option>
+      <option value="Celsius">Celsius</option>
+      <option value="Fahrenheit">Fahrenheit</option>
+      <option value="Percent">Percent</option>
+    </select>
+    <clr-control-helper>Please select a unit.</clr-control-helper>
+    <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+  </clr-select-container>
+
+  <clr-control-container *ngIf="addAssetForm.get('category').value =='Sensors' ">
+    <label>ValidNumMin</label>
+    <input clrControl placeholder="ValidNumMin" formControlName="validNumMin" style="width: 220px;"/>
+  </clr-control-container>
+
+  <clr-control-container *ngIf="addAssetForm.get('category').value =='Sensors' ">
+    <label>ValidNumMax</label>
+    <input clrControl placeholder="ValidNumMax" formControlName="validNumMax" style="width: 220px;"/>
+  </clr-control-container>
+
+
+  <clr-stack-view style="margin-top: 10px;">
+    <clr-stack-block >
+        <clr-stack-label>Location</clr-stack-label>
+        <clr-stack-block>
+          <clr-control-container style="margin-left: -73%;">
+            <label class="locationTitleSpacing">Region</label>
+            <input clrControl placeholder="Region" formControlName="region" style="width: 220px;"/>
+          </clr-control-container>
+          <clr-control-container style="margin-left: -73%;">
+            <label class="locationTitleSpacing">Country</label>
+            <input clrControl placeholder="Country" formControlName="country" style="width: 220px;"/>
+          </clr-control-container>
+          <clr-control-container style="margin-left: -73%;">
+            <label class="locationTitleSpacing">City</label>
+            <input clrControl placeholder="City" formControlName="city" style="width: 220px;"/>
+          </clr-control-container>
+          <clr-control-container style="margin-left: -73%;">
+            <label class="locationTitleSpacing">Building</label>
+            <input clrControl placeholder="Building" formControlName="building" style="width: 220px;"/>
+          </clr-control-container>
+          <clr-control-container style="margin-left: -73%;">
+            <label class="locationTitleSpacing">Floor</label>
+            <input clrControl placeholder="Floor" formControlName="floor" style="width: 220px;"/>
+          </clr-control-container>
+          <clr-control-container style="margin-left: -73%;">
+            <label class="locationTitleSpacing">Room</label>
+            <input clrControl placeholder="Room" formControlName="room" style="width: 220px;"/>
+          </clr-control-container>
+          <clr-control-container style="margin-left: -73%;">
+            <label class="locationTitleSpacing">Row</label>
+            <input clrControl placeholder="Row" formControlName="row" style="width: 220px;"/>
+          </clr-control-container>
+          <clr-control-container style="margin-left: -73%;">
+            <label class="locationTitleSpacing">Col</label>
+            <input clrControl placeholder="Col" formControlName="col" style="width: 220px;"/>
+          </clr-control-container>
+        </clr-stack-block>
+    </clr-stack-block>
+  </clr-stack-view>
+
+  <div style="margin-top: 50px;">
+      <button type="submit" class="btn btn-primary"  (click)="save()" [clrLoading]="addassetloading"  [disabled]="addAssetForm.invalid" >Submit</button>
+      <button type="button" class="btn btn-primary" (click)="cancel()">Cancel</button>
+  </div>
+</form>
