@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Auth0Provider } from '@auth0/auth0-react';
 import Layout from './components/layout/Layout';
 import { ChatProvider } from './components/utils/ChatContext';
 import { TaskGoalProvider } from './context/TaskGoalContext';
 import { OnboardingProvider } from './context/OnboardingContext';
 import { ProfileProvider } from './context/ProfileContext';
 import LiveblocksProvider from './context/LiveblocksProvider';
+import { CustomAuthProvider } from './context/CustomAuthContext';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import OnboardingGuard from './components/auth/OnboardingGuard';
 
@@ -19,6 +19,7 @@ import VisualizedMetrics from './components/VisualizedMetrics';
 import OnboardingFlow from './pages/OnboardingFlow';
 import Settings from './pages/Settings';
 import ChatWidget from './components/ui/ChatWidget';
+import LoginPage from './pages/LoginPage';
 
 // Import Liveblocks rooms
 import LiveTasksRoom from './components/tasks/LiveTasksRoom';
@@ -29,15 +30,7 @@ import './styles/global.css';
 
 function App() {
   return (
-    <Auth0Provider
-      domain="dev-2sqzvgejnwhp8a3e.us.auth0.com"
-      clientId="rnipYiMM9azbvZyxQ7Lfcw3Qyv6MDDYr"
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-        scope: 'openid profile email',
-      }}
-      cacheLocation="localstorage"
-    >
+    <CustomAuthProvider>
       <LiveblocksProvider>
         <ProfileProvider>
           <ChatProvider>
@@ -46,6 +39,7 @@ function App() {
                 <Router>
                   <Routes>
                     <Route path="/onboarding/*" element={<OnboardingFlow />} />
+                    <Route path="/login" element={<LoginPage />} />
                     <Route
                       path="*"
                       element={
@@ -76,7 +70,7 @@ function App() {
           </ChatProvider>
         </ProfileProvider>
       </LiveblocksProvider>
-    </Auth0Provider>
+    </CustomAuthProvider>
   );
 }
 
