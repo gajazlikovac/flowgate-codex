@@ -1,0 +1,2542 @@
+{
+  "step_0": {
+    "label": "Environmental Impact Assessment (EIA)",
+    "directive": "Directive 2014/52/EU",
+    "description": "Assessment of significant environmental effects before development consent is granted.",
+    "reviewers": [
+      "EnvironmentalConsultant",
+      "PlanningAuthority"
+    ],
+    "critical_questions": [
+      1,
+      5,
+      10
+    ],
+    "tooltip": {
+      "Ireland": "EIA via Planning & Development Act 2000; An Bord Plean\u00e1la manages scoping/consent.",
+      "UK": "Town & Country Planning (EIA) Regs 2017; retained EU law.",
+      "Austria": "UVP-G 2000; lower screening thresholds.",
+      "Germany": "UVPG with L\u00e4nder scoping consultation.",
+      "France": "Code de l\u2019environnement; Pr\u00e9fecture/DREAL lead."
+    },
+    "questions": {
+      "question_1": {
+        "id": 1,
+        "old_question_text": "Has a screening determination been requested to assess the need for a full EIA?",
+        "questionText": "Has the developer submitted a formal screening request containing a location map, project description, power capacity, cooling method, backup-power configuration and baseline sensitivities, and received a written screening opinion from the competent authority in accordance with Article 4(2) of Directive 2014/52/EU?",
+        "simplifiedQuestion": "Did you officially request an EIA screening decision?",
+        "reference": "Directive 2014/52/EU Art 4(2)",
+        "priority": "High",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Screening Determination",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf",
+            "docx"
+          ],
+          "description": "Screening request and authority opinion"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf, docx",
+        "documentDescriptor": "Formal screening request and the written screening opinion",
+        "verification_method": [
+          "Document Review",
+          "Authority Confirmation"
+        ],
+        "verificationMethods": "Auditor reviews request & opinion; may confirm with authority.",
+        "nonconformity": {
+          "major": "No screening request",
+          "minor": "Request incomplete"
+        },
+        "majorNonconformity": "No screening determination requested despite Annex II triggers.",
+        "minorNonconformity": "Screening request sent but missing key project data.",
+        "whatThisMeans": "You must prove the competent authority, not the developer, decided whether an ES is required.",
+        "complianceRequires": "- Formal written request\n- Preliminary data set\n- Official screening opinion filed",
+        "expertTip": "Keep a \u2018screening diary\u2019 of every email or call; auditors love traceability.",
+        "recommendedEvidence": "- PDF of request\n- Authority acknowledgement\n- Screening opinion letter",
+        "recommendedActions": "- Engage early with authority\n- Include full project description\n- Archive correspondence in EMS",
+        "sampleResponseTemplate": "We requested a screening determination from [AUTHORITY] on [DATE] (see Screening_Request.pdf). The authority issued Screening Opinion Ref [REF] on [DATE] confirming that a full EIA is required.",
+        "humanInputAnswer": "We submitted the screening request (Doc SR-001) on 15 Jan 2024. The competent authority responded on 28 Feb 2024 (Opinion OP-17-24) confirming EIA is required due to cooling-water demand > 500 m\u00b3 d-1.",
+        "llmGeneratedAnswer": "Yes. A formal screening request (File SR-001) was lodged on 2024-01-15 and the competent authority issued Screening Opinion No. OP-17-24 on 2024-02-28 confirming that a full Environmental Impact Assessment is required.\n\nCITATIONS\nScreening Request SR-001, p-1 \u201cProject description and site plan submitted in accordance with Art 4(1) requirements.\u201d\nScreening Opinion OP-17-24, Section 2 \u201c\u2026the project is likely to have significant effects on the River Avon; therefore an Environmental Statement is required.\u201d",
+        "badExampleAnswer": "We think an EIA isn\u2019t needed so we skipped screening."
+      },
+      "question_2": {
+        "id": 2,
+        "old_question_text": "Is the project type or scale likely to trigger Annex I or II of the EIA Directive?",
+        "questionText": "Has a documented threshold analysis demonstrated whether the data-centre project (site area, IT load, cooling-water abstract) falls under Annex I \u00a724 or Annex II \u00a710(a), taking account of stricter national thresholds where applicable?",
+        "simplifiedQuestion": "Does your project hit Annex I/II triggers?",
+        "reference": "Directive 2014/52/EU Annex I 24 & Annex II 10(a)",
+        "priority": "High",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Annex I/II Classification",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Threshold analysis memo"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Technical memo proving Annex classification",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks calculations against directive tables.",
+        "nonconformity": {
+          "major": "Incorrect Annex classification",
+          "minor": "Memo lacks supporting data"
+        },
+        "majorNonconformity": "Project triggers Annex I but classified as Annex II.",
+        "minorNonconformity": "Cooling-water demand not included in analysis.",
+        "whatThisMeans": "Mis-classification can invalidate the consent process.",
+        "complianceRequires": "- Area & capacity calculations\n- National thresholds check\n- Signed memo by qualified assessor",
+        "expertTip": "Annex II thresholds are lower in Austria\u2014verify L\u00e4nder rules.",
+        "recommendedEvidence": "- Threshold worksheet\n- National-guidance excerpt",
+        "recommendedActions": "- Perform threshold calc at concept stage\n- Recalculate if design changes",
+        "sampleResponseTemplate": "Threshold memo TH-03 shows IT load 35 MW and site area 18 ha; classified as Annex II \u00a710(a).",
+        "humanInputAnswer": "Our memo \u2018EIA_Thresholds_v2\u2019 (Jan 2024) confirms we are Annex II; Austria\u2019s 10 MW cooling-threshold does not apply as we are in Ireland.",
+        "llmGeneratedAnswer": "Yes. Threshold Analysis TH-03 (2024-01-12) demonstrates the project falls under Annex II 10(a) (industrial estate development) with no automatic Annex I triggers.\n\nCITATIONS\nThreshold Analysis TH-03, Table 2 \u201cTotal IT power 35 MW < Annex I trigger 300 MW; Annex II trigger satisfied.\u201d",
+        "badExampleAnswer": "Probably Annex II\u2014I\u2019m not sure."
+      },
+      "question_3": {
+        "id": 3,
+        "old_question_text": "Has the competent authority responded with a screening opinion?",
+        "questionText": "Is the authority\u2019s signed screening opinion, including reasons and any mitigation advice, dated within statutory time limits and stored in the EMS?",
+        "simplifiedQuestion": "Do you have the authority\u2019s written decision?",
+        "reference": "Directive 2014/52/EU Art 4(4)",
+        "priority": "Medium",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Screening Opinion Filing",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Signed screening opinion"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Official screening opinion letter",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor confirms opinion exists & is signed.",
+        "nonconformity": {
+          "major": "Opinion absent",
+          "minor": "Unsigned opinion"
+        },
+        "majorNonconformity": "Project proceeded without written opinion.",
+        "minorNonconformity": "Opinion scanned but missing signature.",
+        "whatThisMeans": "The written opinion proves legal compliance with Article 4(4).",
+        "complianceRequires": "- Signed opinion\n- Stored in EMS\n- Date within 90 days (or national limit)",
+        "expertTip": "Stamp \u2018Controlled Copy\u2019 and upload to SharePoint with versioning.",
+        "recommendedEvidence": "- PDF opinion\n- EMS log entry",
+        "recommendedActions": "- Follow up if authority late",
+        "sampleResponseTemplate": "Screening Opinion OP-17-24 dated 28 Feb 2024 filed in EMS folder 01-EIA/Screening.",
+        "humanInputAnswer": "Opinion OP-17-24 (28-Feb-24) stored in \\Compliance\\EIA\\Screening.",
+        "llmGeneratedAnswer": "Yes. Screening Opinion OP-17-24 signed by the Planning Authority on 28 Feb 2024 has been uploaded to the EMS document library (ID 2441).\n\nCITATIONS\nOP-17-24, Para 3 \u201c\u2026a full Environmental Impact Assessment is required owing to water-abstraction magnitude.\u201d",
+        "badExampleAnswer": "We phoned the planner and they said looks fine."
+      },
+      "question_4": {
+        "id": 4,
+        "old_question_text": "Has the developer submitted information required for the screening?",
+        "questionText": "Did the screening dossier include location plan, baseline map of sensitive habitats, resource-use summary (power, water), traffic estimate and outline mitigation, fulfilling Article 4(1)?",
+        "simplifiedQuestion": "Did you file a complete screening dossier?",
+        "reference": "Directive 2014/52/EU Art 4(1)",
+        "priority": "Medium",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Screening Dossier Completeness",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf",
+            "docx"
+          ],
+          "description": "Screening information pack"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf, docx",
+        "documentDescriptor": "Complete screening information pack",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks content vs Art 4(1) list.",
+        "nonconformity": {
+          "major": "Critical data omitted",
+          "minor": "Some maps missing legend"
+        },
+        "majorNonconformity": "Cooling-water demand omitted from dossier.",
+        "minorNonconformity": "Traffic estimate lacks peak-hour detail.",
+        "whatThisMeans": "Incomplete dossiers delay screening and raise audit issues.",
+        "complianceRequires": "- Location & site plan\n- Baseline environment\n- Predicted emissions/resources\n- Outline mitigation",
+        "expertTip": "Use GIS layers so authority can import instantly.",
+        "recommendedEvidence": "- Screening pack index\n- Full PDF dossier",
+        "recommendedActions": "- Adopt corporate screening template",
+        "sampleResponseTemplate": "Screening Pack v1.2 (15 Jan 2024) includes all Article 4(1) items; see index page 2.",
+        "humanInputAnswer": "Yes, dossier SP-12 has maps, baseline, traffic, resource summary and draft mitigation table.",
+        "llmGeneratedAnswer": "All information required by Art 4(1) is included in Screening Pack SP-12 (rev 1.2) uploaded 2024-01-15.\n\nCITATIONS\nSP-12, Index p-2 \u201c\u2026includes baseline sensitive habitat map, predicted water abstraction 550 m\u00b3/d, outline mitigation table.\u201d",
+        "badExampleAnswer": "We sent a short email summary."
+      },
+      "question_5": {
+        "id": 5,
+        "old_question_text": "Has the scoping process been completed and formalised with the authority?",
+        "questionText": "Has a scoping request been filed, stakeholder feedback collated, and a formal scoping opinion issued that defines ES study topics and required assessment depth?",
+        "simplifiedQuestion": "Do you have a formal scoping opinion?",
+        "reference": "Directive 2014/52/EU Art 5",
+        "priority": "High",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Scoping Opinion",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Scoping request and opinion"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Authority scoping opinion letter",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor confirms opinion, tracks ES compliance.",
+        "nonconformity": {
+          "major": "No scoping opinion",
+          "minor": "Opinion not followed"
+        },
+        "majorNonconformity": "ES submitted without scoping opinion.",
+        "minorNonconformity": "Opinion requires noise study; ES omitted.",
+        "whatThisMeans": "Scoping ensures ES focuses on relevant impacts.",
+        "complianceRequires": "- Scoping request\n- Opinion with study scope\n- ES cross-reference",
+        "expertTip": "Attach opinion as ES Appendix A to show compliance.",
+        "recommendedEvidence": "- Scoping opinion PDF",
+        "recommendedActions": "- Schedule scoping meeting early",
+        "sampleResponseTemplate": "Scoping Opinion SO-014 issued 10 Mar 2024; ES Table 1-2 maps each requirement.",
+        "humanInputAnswer": "Opinion SO-014 specifies detailed hydro modelling; ES Sec 6.2 complies.",
+        "llmGeneratedAnswer": "Yes. Scoping Opinion SO-014 (10-Mar-2024) sets noise, hydro and biodiversity study depth; ES sections 6\u20138 address each requirement.\n\nCITATIONS\nSO-014, Requirement 4 \u201c\u2026full hydro-dynamic model of cooling-water discharge.\u201d",
+        "badExampleAnswer": "We did our own scoping internally."
+      },
+      "question_6": {
+        "id": 6,
+        "old_question_text": "Were key stakeholders consulted during the scoping phase?",
+        "questionText": "Has the project team recorded meetings/emails with statutory consultees (biodiversity, water, heritage) and local community reps, and documented how their issues will be addressed in the ES?",
+        "simplifiedQuestion": "Did you consult key agencies & community?",
+        "reference": "Directive 2014/52/EU Art 5(2)",
+        "priority": "Medium",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Scoping Stakeholder Engagement",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf",
+            "xlsx"
+          ],
+          "description": "Stakeholder log"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf, xlsx",
+        "documentDescriptor": "Stakeholder engagement log",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor samples log vs meeting minutes.",
+        "nonconformity": {
+          "major": "No engagement evidence",
+          "minor": "Some consultees missing"
+        },
+        "majorNonconformity": "No agency consultation recorded.",
+        "minorNonconformity": "Community council not consulted.",
+        "whatThisMeans": "Meaningful engagement reduces delay & litigation.",
+        "complianceRequires": "- List of consultees\n- Issues & responses table",
+        "expertTip": "Colour-code unresolved items red for follow-up.",
+        "recommendedEvidence": "- Stakeholder log spreadsheet\n- Meeting minutes",
+        "recommendedActions": "- Update log after each meeting",
+        "sampleResponseTemplate": "Stakeholder Log v3 lists 12 consultees; unresolved items flagged and addressed in ES Sec 8.",
+        "humanInputAnswer": "Yes; log SL-2024-05 records meetings with EPA, Inland Fisheries, local residents (Feb-Apr 2024).",
+        "llmGeneratedAnswer": "Key stakeholders were consulted from Feb-Mar 2024; issues on cooling-water temperature and traffic were incorporated into ES chapters 6 & 9.\n\nCITATIONS\nStakeholder Log SL-2024-05, Row 7 \u201cEPA requested thermal plume model; added to ES Sec 6.3.\u201d",
+        "badExampleAnswer": "We\u2019ll consult after construction."
+      },
+      "question_7": {
+        "id": 7,
+        "old_question_text": "Was transboundary consultation triggered due to potential cross-border impact?",
+        "questionText": "If predictive modelling shows impacts beyond the Member-State border, was Article 7 notice sent, responses logged, and ES updated?",
+        "simplifiedQuestion": "Were neighbouring countries notified?",
+        "reference": "Directive 2014/52/EU Art 7",
+        "priority": "Low",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Trans-boundary Notification",
+        "document_requirements": {
+          "required": false,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Notification letters"
+        },
+        "docRequired": "Conditional",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Article 7 notification package",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks if impact crosses border.",
+        "nonconformity": {
+          "major": "Notification required but not sent",
+          "minor": "Late notice"
+        },
+        "majorNonconformity": "Cooling-plume affects shared river; no notice.",
+        "minorNonconformity": "Notice sent after scoping.",
+        "whatThisMeans": "Trans-boundary duty avoids international disputes.",
+        "complianceRequires": "- Impact screen\n- Notice + response log",
+        "expertTip": "Include local-language translation of notice.",
+        "recommendedEvidence": "- Notification letter scan\n- Foreign authority reply",
+        "recommendedActions": "- Screen for cross-border impacts early",
+        "sampleResponseTemplate": "Article 7 notice sent to [STATE] on 12 Mar 2024; no comments received by 12 Apr.",
+        "humanInputAnswer": "No cross-border impacts predicted; memo TB-Zero filed.",
+        "llmGeneratedAnswer": "Not applicable\u2014dispersion modelling confirms all impacts <5 km from site; national border 22 km away.\n\nCITATIONS\nModel Report MR-03, p-18 \u201cSO\u2082 ground-level concentrations diminish to background at 8 km.\u201d",
+        "badExampleAnswer": "We\u2019re far from the border, so ignored."
+      },
+      "question_8": {
+        "id": 8,
+        "old_question_text": "Is the Environmental Statement (ES) prepared according to Article 5 requirements?",
+        "questionText": "Does the ES contain project, alternatives, baseline, impact, mitigation, monitoring, NTS and an Annex IV cross-reference table?",
+        "simplifiedQuestion": "Is your ES complete and structured per Annex IV?",
+        "reference": "Directive 2014/52/EU Art 5 & Annex IV",
+        "priority": "High",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "ES Completeness",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Full ES"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Environmental Statement (final)",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks ES sections vs Annex IV list.",
+        "nonconformity": {
+          "major": "Sections missing",
+          "minor": "Annex IV table absent"
+        },
+        "majorNonconformity": "Mitigation chapter missing.",
+        "minorNonconformity": "No non-technical summary.",
+        "whatThisMeans": "Incomplete ES risks refusal or legal challenge.",
+        "complianceRequires": "- All sections present\n- QA sign-off",
+        "expertTip": "Include clickable cross-links from Annex IV table to sections.",
+        "recommendedEvidence": "- Final ES PDF\n- QA certificate",
+        "recommendedActions": "- Use ES template to ensure structure",
+        "sampleResponseTemplate": "ES Rev C (30 Jun 2024) includes Annex IV compliance table (App 0).",
+        "humanInputAnswer": "Yes; ES version C signed by Chartered Env Eng 30 Jun 24.",
+        "llmGeneratedAnswer": "Yes. ES Rev C (2024-06-30) contains all Annex IV items; QA declaration signed by Lead Environmental Practitioner.\n\nCITATIONS\nES Rev C, Table A-1 \u2014 Annex IV cross-reference list.",
+        "badExampleAnswer": "ES still a draft."
+      },
+      "question_9": {
+        "id": 9,
+        "old_question_text": "Does the ES include alternatives considered and reasons for project choice?",
+        "questionText": "Has the ES alternatives chapter compared at least three realistic siting/design/cooling options and justified the preferred alternative on environmental grounds?",
+        "simplifiedQuestion": "Do you explain rejected options?",
+        "reference": "Directive 2014/52/EU Annex IV \u00a72",
+        "priority": "Medium",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Alternatives Assessment",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Alternatives chapter"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "ES alternatives chapter",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor reviews comparative matrix.",
+        "nonconformity": {
+          "major": "No alternatives assessed",
+          "minor": "Alternatives lack justification"
+        },
+        "majorNonconformity": "Only preferred site discussed; no comparison.",
+        "minorNonconformity": "Alternatives listed but no quantitative scores.",
+        "whatThisMeans": "Lack of alternatives is common litigation angle.",
+        "complianceRequires": "- At least 3 options\n- Comparative matrix\n- Environmental scoring",
+        "expertTip": "Include \u2018do-nothing\u2019 base case for credibility.",
+        "recommendedEvidence": "- Alternatives matrix\n- Option scoring sheets",
+        "recommendedActions": "- Conduct options study early\n- Keep discarded options file",
+        "sampleResponseTemplate": "Section 4 compares Site A, B, C; Site C chosen for lower habitat impact and lower water use.",
+        "humanInputAnswer": "Yes; Site-selection Report SSR-01 records three sites, option C best on carbon & habitat.",
+        "llmGeneratedAnswer": "Yes. ES Section 4 models three cooling technologies and two sites; preferred option offers 27 % lower lifecycle CO\u2082.\n\nCITATIONS\nES Sec 4.3, Table 4-2 \u201c\u2026Option 3 achieves best environmental score of 82/100.\u201d",
+        "badExampleAnswer": "We chose this site for business reasons."
+      },
+      "question_10": {
+        "id": 10,
+        "old_question_text": "Does the ES contain a description of mitigation measures?",
+        "questionText": "Are all significant impacts paired with avoidance, reduction, remediation or compensation measures, each with responsible party, schedule and residual-impact estimate?",
+        "simplifiedQuestion": "Have you listed every mitigation measure?",
+        "reference": "Directive 2014/52/EU Annex IV \u00a77",
+        "priority": "High",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Mitigation Register",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Mitigation table"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Mitigation register",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks each impact vs mitigation.",
+        "nonconformity": {
+          "major": "Mitigation missing",
+          "minor": "Residuals not quantified"
+        },
+        "majorNonconformity": "No mitigation for surface-water impact.",
+        "minorNonconformity": "Responsible party unspecified.",
+        "whatThisMeans": "Mitigation lists become binding permit conditions.",
+        "complianceRequires": "- Mitigation table\n- Residual impact\n- Responsibility column",
+        "expertTip": "Export register to project-controls software to track completion.",
+        "recommendedEvidence": "- Mitigation table PDF\n- Implementation tracker",
+        "recommendedActions": "- Assign each mitigation to contractor/owner",
+        "sampleResponseTemplate": "Table 7-1 lists 22 mitigations; noise barriers due Q3-24; planting plan due Q2-25.",
+        "humanInputAnswer": "Yes; mitigation register MR-01 tracks 22 items; residual NO\u2082 < EC limit after mitigation.",
+        "llmGeneratedAnswer": "Yes. Mitigation Register MR-01 assigns each mitigation measure to EPC contractor with target dates; residual impacts now rated Minor.\n\nCITATIONS\nMR-01, Row 14 \u201cInstall 4 m acoustic barrier along north boundary by Oct 2024.\u201d",
+        "badExampleAnswer": "Mitigation will be decided later."
+      },
+      "question_11": {
+        "id": 11,
+        "old_question_text": "Has the ES been made publicly available for comment?",
+        "questionText": "Was the Environmental Statement advertised in a local newspaper, on the authority\u2019s website, and physically posted at the site boundaries for a minimum 30-day consultation period, with a documented record of dates, links, and copies of notices as required by Article 6(2)?",
+        "simplifiedQuestion": "Did you publish the ES for at least 30 days?",
+        "reference": "Directive 2014/52/EU Art 6(2)",
+        "priority": "Medium",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Public Disclosure of ES",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf",
+            "jpg"
+          ],
+          "description": "Copies of newspaper adverts, screenshots of website posting, photos of site notices"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf, jpg",
+        "documentDescriptor": "Evidence of ES public notice and availability",
+        "verification_method": [
+          "Document Review",
+          "Website Check"
+        ],
+        "verificationMethods": "Auditor reviews notice copies and checks web link.",
+        "nonconformity": {
+          "major": "ES not publicly available",
+          "minor": "Consultation period less than statutory minimum"
+        },
+        "majorNonconformity": "Environmental Statement was not made public, violating Article 6(2).",
+        "minorNonconformity": "Public notice ran for only 21 days instead of the required 30.",
+        "whatThisMeans": "The public must have genuine opportunity to review and comment on the ES; failure can invalidate consent.",
+        "complianceRequires": "- Newspaper advert with date\n- Web posting link active\n- 30-day minimum display\n- Site-notice photographs",
+        "expertTip": "Keep screenshots of the authority\u2019s portal showing the posting dates; websites change.",
+        "recommendedEvidence": "- PDF of advert\n- Screenshot of web posting with timestamp\n- Photo of on-site notice boards",
+        "recommendedActions": "- Plan notice period early to avoid delays\n- Use multiple channels (print, web, social media)",
+        "sampleResponseTemplate": "Public notice (The Gazette, 5 Jul 2024, p. 3) and website posting (planning.gov/eia/DC24-ES) were live from 5 Jul to 5 Aug 2024; site notices erected 4 Jul 2024 (photos attached).",
+        "humanInputAnswer": "Yes\u2014advert placed 10 June 2024 in The Herald, web link live same day, consultation closed 12 July 2024 >30 days.",
+        "llmGeneratedAnswer": "Yes. The ES was advertised on 10 Jun 2024 in The Herald and published on the planning portal (link ID 43812) for 32 days (10 Jun \u2013 12 Jul 2024).\n\nCITATIONS\nThe Herald 10 Jun 2024, Public Notices p. 6\nPlanning Portal Entry #43812, Metadata \"Published 2024-06-10, Archived 2024-08-10\"",
+        "badExampleAnswer": "We posted it somewhere online but can\u2019t remember the link."
+      },
+      "question_12": {
+        "id": 12,
+        "old_question_text": "Has the authority consulted relevant environmental bodies?",
+        "questionText": "Does the project file contain letters or emails from statutory bodies (e.g., biodiversity, heritage, water agencies) acknowledging receipt of the ES and providing written comments, in line with Article 6(2) requirements?",
+        "simplifiedQuestion": "Did each statutory agency review the ES?",
+        "reference": "Directive 2014/52/EU Art 6(2)",
+        "priority": "Low",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Statutory Consultee Feedback",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf",
+            "eml"
+          ],
+          "description": "Correspondence from agencies"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf, eml",
+        "documentDescriptor": "Letters/emails from all consultees",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks each statutory consultee listed in national regs.",
+        "nonconformity": {
+          "major": "Missing feedback from key consultee",
+          "minor": "Late consultee response without extension"
+        },
+        "majorNonconformity": "No feedback from Water Authority despite cooling-water discharge.",
+        "minorNonconformity": "Heritage agency response arrived after decision date.",
+        "whatThisMeans": "Comprehensive statutory consultation evidences due process and reduces legal risk.",
+        "complianceRequires": "- Send ES to each consultee\n- Log acknowledgements\n- Store written feedback",
+        "expertTip": "Create a consultee tracker with status (Sent / Acknowledged / Responded).",
+        "recommendedEvidence": "- Consultee tracker spreadsheet\n- PDF copies of letters/emails",
+        "recommendedActions": "- Follow up on non-responses 10 days before deadline",
+        "sampleResponseTemplate": "Feedback received from EPA (Ref EPA/24/331) and Heritage Service (HS-45-24) 20 Jul 2024; all stored in folder 02-Consultees.",
+        "humanInputAnswer": "Yes; all five statutory consultees returned comments by 25 Jun 2024.",
+        "llmGeneratedAnswer": "Yes. Copies of consultee letters EPA-DC-08 and IFI-Liffey-22 are filed; both acknowledged ES receipt and provided comments adopted in ES Addendum 1.\n\nCITATIONS\nLetter EPA-DC-08 2024-06-14 \u201c\u2026no additional chemical parameters beyond those listed in Table 6 should be discharged.\u201d",
+        "badExampleAnswer": "We assume the authority sent it to whoever needed it."
+      },
+      "question_13": {
+        "id": 13,
+        "old_question_text": "Were comments from the public and authorities recorded and responded to?",
+        "questionText": "Is there a comment\u2013response register documenting every submission from the public or statutory consultee, the developer\u2019s response, and cross-references to changes in the ES or design?",
+        "simplifiedQuestion": "Did you log and answer every comment?",
+        "reference": "Directive 2014/52/EU Art 6(5)",
+        "priority": "Medium",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Comment\u2013Response Register",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "xlsx",
+            "pdf"
+          ],
+          "description": "Comment\u2013response matrix"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "xlsx, pdf",
+        "documentDescriptor": "Excel or PDF comment matrix",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor samples comments vs ES revisions.",
+        "nonconformity": {
+          "major": "No responses to objections",
+          "minor": "Register incomplete"
+        },
+        "majorNonconformity": "Public objections recorded but no developer response.",
+        "minorNonconformity": "Two consultee comments missing in log.",
+        "whatThisMeans": "Clear audit trail of issues-resolution demonstrates transparency.",
+        "complianceRequires": "- Unique ID per comment\n- Response & ES reference",
+        "expertTip": "Colour-code \u2018Actioned\u2019 vs \u2018Noted\u2019 vs \u2018Rejected with reasons\u2019.",
+        "recommendedEvidence": "- Comment matrix vFinal\n- ES change-log",
+        "recommendedActions": "- Update matrix after each consultation round",
+        "sampleResponseTemplate": "Comment matrix CM-02 lists 48 comments; 14 led to ES revision (see ES Change-Log CL-01).",
+        "humanInputAnswer": "Matrix CM-02 shows responses to all 17 statutory comments and 31 public submissions.",
+        "llmGeneratedAnswer": "Yes. All 48 submissions were logged and responded to; 14 design changes implemented.\n\nCITATIONS\nComment Matrix CM-02, Row 12 \u201c\u2026cooling-water discharge temperature now reduced to 24 \u00b0C maximum (was 26 \u00b0C).\u201d",
+        "badExampleAnswer": "Comments stored in email inbox."
+      },
+      "question_14": {
+        "id": 14,
+        "old_question_text": "Has the competent authority considered the ES and consultation feedback?",
+        "questionText": "Does the decision report explicitly reference the ES chapters and stakeholder feedback and explain how these influenced consent conditions, in compliance with Article 8?",
+        "simplifiedQuestion": "Does the approval document cite ES and feedback?",
+        "reference": "Directive 2014/52/EU Art 8",
+        "priority": "Medium",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Decision Report Reasoning",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Authority decision report"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Decision report citing ES sections",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor confirms citations & reasoning.",
+        "nonconformity": {
+          "major": "Decision lacks environmental reasoning",
+          "minor": "Feedback not referenced"
+        },
+        "majorNonconformity": "Authority decision does not reference ES content.",
+        "minorNonconformity": "Public feedback section missing.",
+        "whatThisMeans": "Transparent reasoning defends decision if challenged.",
+        "complianceRequires": "- Decision report cites ES\n- Summarises feedback handling",
+        "expertTip": "Ask authority for \u2018Environmental Statement Review\u2019 appendix if not attached.",
+        "recommendedEvidence": "- PDF decision report",
+        "recommendedActions": "- Ensure decision uploaded once received",
+        "sampleResponseTemplate": "Decision Report DR-2024-14 cites ES Sec 7 (noise) and public concern; noise-barrier condition applied.",
+        "humanInputAnswer": "Decision report DR-2024-14 shows chapter referencing and conditions.",
+        "llmGeneratedAnswer": "Yes. Decision Report DR-2024-14 (Section 3) references ES Section 7 Noise and imposes Condition 12 (4 m acoustic barrier).\n\nCITATIONS\nDecision DR-2024-14, p-11 \u201c\u2026having considered stakeholder submissions 1-48 and ES Chapter 7, the Board imposes Condition 12.\u201d",
+        "badExampleAnswer": "The authority approved it; we don\u2019t know why."
+      },
+      "question_15": {
+        "id": 15,
+        "old_question_text": "Has a formal development consent decision been issued?",
+        "questionText": "Is the signed development-consent notice with all conditions dated, published and stored in the Environmental Management System?",
+        "simplifiedQuestion": "Do you have the signed approval notice?",
+        "reference": "Directive 2014/52/EU Art 8a",
+        "priority": "High",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Development Consent Notice",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Signed consent decision"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Signed decision notice",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor confirms signature & conditions list.",
+        "nonconformity": {
+          "major": "Construction started without notice",
+          "minor": "Unsigned copy in file"
+        },
+        "majorNonconformity": "Building works commenced before consent.",
+        "minorNonconformity": "Copy scanned but missing signature page.",
+        "whatThisMeans": "Operating without consent is illegal; must show evidence.",
+        "complianceRequires": "- Signed notice\n- Conditions schedule",
+        "expertTip": "Upload both PDF and OCR-searchable copy for quick retrieval.",
+        "recommendedEvidence": "- PDF notice\n- EMS record entry",
+        "recommendedActions": "- Distribute notice to contractors",
+        "sampleResponseTemplate": "Consent Notice CN-07-24 signed 30 Aug 2024; stored at \\Compliance\\Permits\\EIA\\CN-07-24.pdf.",
+        "humanInputAnswer": "Notice CN-07-24 signed by Planning Director stored in EMS.",
+        "llmGeneratedAnswer": "Yes. Development Consent Notice CN-07-24 dated 30 Aug 2024 is filed and disseminated to all contractors.\n\nCITATIONS\nConsent Notice CN-07-24, Condition 8 \u201c\u2026pre-commencement survey of protected species.\u201d",
+        "badExampleAnswer": "We were told verbally it\u2019s fine."
+      },
+      "question_16": {
+        "id": 16,
+        "old_question_text": "Have monitoring measures been specified in the final consent decision?",
+        "questionText": "Does the consent include a monitoring schedule (parameters, frequency, reporting) and is this schedule integrated into the site EMS calendar?",
+        "simplifiedQuestion": "Does your permit list required monitoring?",
+        "reference": "Directive 2014/52/EU Art 8a(4)",
+        "priority": "Medium",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Monitoring Schedule",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Monitoring conditions"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Monitoring conditions in consent",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks monitoring tasks set in CMMS.",
+        "nonconformity": {
+          "major": "No monitoring conditions",
+          "minor": "Schedule lacks frequency"
+        },
+        "majorNonconformity": "Consent omitted monitoring of discharge temps.",
+        "minorNonconformity": "Frequency of noise monitoring unclear.",
+        "whatThisMeans": "Monitoring conditions become enforceable obligations.",
+        "complianceRequires": "- Parameter list\n- Frequency & reporting",
+        "expertTip": "Set EMS auto-reminders 14 days before due date.",
+        "recommendedEvidence": "- Consent extract\n- EMS task list",
+        "recommendedActions": "- Import tasks into CMMS",
+        "sampleResponseTemplate": "Condition 11 requires quarterly groundwater sampling; tasks scheduled (job IDs 1101-1104).",
+        "humanInputAnswer": "Yes, monitoring tasks loaded into Maximo.",
+        "llmGeneratedAnswer": "Yes. Consent Condition 11 mandates quarterly groundwater and annual noise monitoring; tasks created in CMMS Work Orders WO-1101 to WO-1104.\n\nCITATIONS\nConsent Notice CN-07-24, Condition 11.",
+        "badExampleAnswer": "We\u2019ll monitor when we can."
+      },
+      "question_17": {
+        "id": 17,
+        "old_question_text": "Has the ES been updated in light of any project changes?",
+        "questionText": "If design changes occurred after ES submission, has an ES addendum been prepared, including updated impact assessment and additional mitigation, and re-consulted as required?",
+        "simplifiedQuestion": "Did you file an ES addendum for design changes?",
+        "reference": "Directive 2014/52/EU Art 5",
+        "priority": "Low",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "ES Addendum",
+        "document_requirements": {
+          "required": false,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "ES addendum (if applicable)"
+        },
+        "docRequired": "Conditional",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "ES addendum",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks change log vs addendum.",
+        "nonconformity": {
+          "major": "Major redesign with no addendum",
+          "minor": "Addendum filed but not consulted"
+        },
+        "majorNonconformity": "Cooling-system redesign not assessed.",
+        "minorNonconformity": "Addendum not published.",
+        "whatThisMeans": "Material changes require updated assessment.",
+        "complianceRequires": "- Addendum document\n- Consultation record",
+        "expertTip": "Maintain a change-log even if addendum not needed.",
+        "recommendedEvidence": "- Addendum PDF",
+        "recommendedActions": "- Trigger addendum workflow on major change",
+        "sampleResponseTemplate": "Addendum A-01 (server-hall expansion) filed 12 Nov 2024; no new significant impacts.",
+        "humanInputAnswer": "N/A \u2013 no design changes.",
+        "llmGeneratedAnswer": "No addendum required; design unchanged post-ES.\n\nCITATIONS\nChange Log CL-00 confirms no modifications since ES submission.",
+        "badExampleAnswer": "We\u2019ll update ES later."
+      },
+      "question_18": {
+        "id": 18,
+        "old_question_text": "Are ES contents aligned with Annex IV of the Directive?",
+        "questionText": "Is an Annex IV compliance matrix included, showing each item and page reference, signed by the lead assessor?",
+        "simplifiedQuestion": "Does the ES tick every Annex IV requirement?",
+        "reference": "Directive 2014/52/EU Annex IV",
+        "priority": "Medium",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Annex IV Compliance Matrix",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Annex IV matrix"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Annex IV compliance table",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor cross-checks ES vs matrix.",
+        "nonconformity": {
+          "major": "Matrix missing key sections",
+          "minor": "Page refs incorrect"
+        },
+        "majorNonconformity": "No baseline climate description in ES.",
+        "minorNonconformity": "Matrix page refs outdated.",
+        "whatThisMeans": "Matrix aids fast regulatory review and avoids omissions.",
+        "complianceRequires": "- Matrix table\n- Page refs",
+        "expertTip": "Insert matrix as ES Appendix 0.",
+        "recommendedEvidence": "- Matrix PDF",
+        "recommendedActions": "- Update matrix when ES revised",
+        "sampleResponseTemplate": " Appendix 0 lists each Annex IV item and ES page; signed 30 Jun 2024.",
+        "humanInputAnswer": "Yes; matrix signed by Lead EIA Consultant.",
+        "llmGeneratedAnswer": "Yes. Annex IV compliance table (Appendix 0) references ES Section 6.1 for baseline soil data, Section 7 for impact assessment, etc.\n\nCITATIONS\nES Appendix 0, Row 8 \u201c\u2026mitigation measures \u2013 ES Section 9.\u201d",
+        "badExampleAnswer": "Matrix to be filled later."
+      },
+      "question_19": {
+        "id": 19,
+        "old_question_text": "Has a non-technical summary of the ES been prepared?",
+        "questionText": "Is there a \u226415-page, plain-language Non-Technical Summary (NTS) of the ES, translated into the local language(s) and published with the ES?",
+        "simplifiedQuestion": "Do you have a plain-language ES summary?",
+        "reference": "Directive 2014/52/EU Annex IV \u00a79",
+        "priority": "Low",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Non-Technical Summary",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Non-Technical Summary"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Plain-language ES summary",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks readability & length.",
+        "nonconformity": {
+          "major": "No NTS published",
+          "minor": "NTS >15 pages or too technical"
+        },
+        "majorNonconformity": "NTS absent.",
+        "minorNonconformity": "NTS 25 pages long.",
+        "whatThisMeans": "Public must understand project impacts without reading 500-page ES.",
+        "complianceRequires": "- \u226415 pages\n- Plain language\n- Published online",
+        "expertTip": "Use infographics for key impacts.",
+        "recommendedEvidence": "- PDF NTS",
+        "recommendedActions": "- Edit for readability score >60 (F-K)",
+        "sampleResponseTemplate": "NTS (12 pages) published 5 Jul 2024 alongside ES.",
+        "humanInputAnswer": "Yes; NTS 12 pages, plain-language, with infographics.",
+        "llmGeneratedAnswer": "Yes. A 12-page NTS (doc NTS-Rev B) summarises key impacts and mitigation; readability score 64.\n\nCITATIONS\nNTS-Rev B, p-2 \u201c\u2026cooling-water abstraction 450 m\u00b3 day-1.\u201d",
+        "badExampleAnswer": "People can read the ES if they want."
+      },
+      "question_20": {
+        "id": 20,
+        "old_question_text": "Are cumulative and synergistic effects assessed?",
+        "questionText": "Has the ES quantified cumulative impacts (air, water, traffic, noise) considering existing and approved developments within the study area, and assessed synergistic interactions as required by Annex IV \u00a75?",
+        "simplifiedQuestion": "Did you assess combined impacts with other projects?",
+        "reference": "Directive 2014/52/EU Annex IV \u00a75",
+        "priority": "High",
+        "stepSection": "EIA Step 0",
+        "recommendationTitle": "Cumulative Impact Assessment",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Cumulative-effects chapter"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Cumulative-effects section of ES",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor cross-checks model inputs vs project list.",
+        "nonconformity": {
+          "major": "No cumulative assessment",
+          "minor": "Qualitative only"
+        },
+        "majorNonconformity": "ES lacks cumulative NO\u2082 modelling.",
+        "minorNonconformity": "Assessment narrative only\u2014no numbers.",
+        "whatThisMeans": "Courts often scrutinise cumulative impacts; must be quantified.",
+        "complianceRequires": "- Identify other projects\n- Model combined impacts\n- Present results graphically",
+        "expertTip": "Use interactive GIS map to visualise overlapping projects.",
+        "recommendedEvidence": "- Cumulative model report\n- List of nearby projects",
+        "recommendedActions": "- Update list quarterly\n- Include synergy discussion (e.g., NO\u2093 + ozone)",
+        "sampleResponseTemplate": "ES Sec 8 assesses cumulative traffic with two other DC builds; peak flow within junction capacity.",
+        "humanInputAnswer": "Yes; Section 8 shows air & noise cumulative modelling with adjacent logistics park.",
+        "llmGeneratedAnswer": "Yes. ES Cumulative Chapter models NO\u2082 adding emissions from three existing data centres; resulting PEC 28 \u00b5g m-3 < EU limit 40 \u00b5g m-3.\n\nCITATIONS\nES Sec 8.2, Table 8-3 \u201c\u2026combined NO\u2082 28 \u00b5g m-3 annual mean.\u201d",
+        "badExampleAnswer": "Cumulative impacts not considered relevant."
+      }
+    }
+  },
+  "step_1": {
+    "label": "Industrial Emissions Directive (IED)",
+    "directive": "Directive 2010/75/EU",
+    "description": "Ensures emissions control for combustion installations \u226550 MWth.",
+    "reviewers": [
+      "EmissionsEngineer",
+      "EnvironmentalAuthority"
+    ],
+    "critical_questions": [
+      21,
+      25,
+      30,
+      35,
+      40
+    ],
+    "tooltip": {
+      "Ireland": "IED licensing via EPA Act & IE Licence; BAT conclusions enforced.",
+      "UK": "Retained via Environmental Permitting Regs 2016; EA/NRW/SEPA issue permits.",
+      "Austria": "Integrated into Gewerbeordnung; permits handled by province trade offices.",
+      "Germany": "Implemented through BImSchG; regional Umwelt\u00e4mter enforce.",
+      "France": "Applied through ICPE regime; Pr\u00e9fecture signs permit (arr\u00eat\u00e9 d\u2019autorisation)."
+    },
+    "questions": {
+      "question_21": {
+        "id": 21,
+        "old_question_text": "Does the installation exceed 50 MW thermal input threshold?",
+        "questionText": "Has the operator produced a consolidated inventory of all combustion units (backup generators, boilers, CHP) demonstrating that the aggregated rated thermal input is \u226550 MWth, triggering IED permitting under Annex I, category 1.1?",
+        "simplifiedQuestion": "Do your engines add up to 50 MWth or more?",
+        "reference": "Directive 2010/75/EU Art 4 & Annex I 1.1",
+        "priority": "High",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Thermal-Input Threshold Calculation",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "xlsx",
+            "pdf"
+          ],
+          "description": "Thermal-input calculation worksheet"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "xlsx, pdf",
+        "documentDescriptor": "Inventory of generators with individual & total MWth",
+        "verification_method": [
+          "Document Review",
+          "Technical Calculation Check"
+        ],
+        "verificationMethods": "Auditor confirms MWth math and aggregation rules.",
+        "nonconformity": {
+          "major": "Thermal input exceeds 50 MW but not declared",
+          "minor": "Calculation lacks standby-simultaneity assumption"
+        },
+        "majorNonconformity": "Installation exceeds 50 MWth but no IED permit pursued.",
+        "minorNonconformity": "Inventory excludes future phase-2 engines.",
+        "whatThisMeans": "Exceeding 50 MWth makes the site a Large Combustion Plant under IED, requiring a permit.",
+        "complianceRequires": "- Inventory list\n- Aggregation per Art 29 rules\n- Signed by qualified engineer",
+        "expertTip": "Use a thermal-input calculator template with automatic %O\u2082 corrections.",
+        "recommendedEvidence": "- Excel inventory sheet\n- Signed calculation memo",
+        "recommendedActions": "- Update inventory yearly or when new engines added",
+        "sampleResponseTemplate": "Inventory INV-IED-01 (v3) lists 12 diesel gensets \u00d7 5.4 MWth = 64.8 MWth total. Exceeds threshold; IED permit required.",
+        "humanInputAnswer": "Yes; calculation INV-IED-01 shows 64.8 MWth.",
+        "llmGeneratedAnswer": "Yes. Inventory INV-IED-01 confirms total rated input of 64.8 MWth (Annex I category 1.1).\n\nCITATIONS\nINV-IED-01, Table 1 \u201c\u2026Total MWth 64.8 \u2265 50 MWth threshold.\u201d",
+        "badExampleAnswer": "Engines only run in emergency so threshold doesn\u2019t matter."
+      },
+      "question_22": {
+        "id": 22,
+        "old_question_text": "Has an application been submitted for an IED environmental permit?",
+        "questionText": "Has a complete IED permit application (forms, site layout, baseline report, BAT justification, ELV proposal) been lodged and acknowledged as \u2018duly made\u2019 by the competent authority?",
+        "simplifiedQuestion": "Have you filed your IED permit application?",
+        "reference": "Directive 2010/75/EU Art 5",
+        "priority": "High",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "IED Permit Application Submission",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Filed IED application & authority receipt"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Application dossier & receipt",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks authority receipt stamp.",
+        "nonconformity": {
+          "major": "No IED application submitted",
+          "minor": "Application incomplete"
+        },
+        "majorNonconformity": "Operation commenced without permit application.",
+        "minorNonconformity": "Missing baseline-report annex.",
+        "whatThisMeans": "Site cannot legally operate >50 MWth without filing an IED application.",
+        "complianceRequires": "- Form A/B\n- Tech description\n- Baseline report\n- BAT comparison",
+        "expertTip": "Include an executive summary cross-mapping BAT-AELs to proposed controls.",
+        "recommendedEvidence": "- PDF application\n- Authority \u2018duly-made\u2019 letter",
+        "recommendedActions": "- Submit application \u226512 months before commissioning",
+        "sampleResponseTemplate": "IED Application IED-APP-042 filed 15 Sep 2024, acknowledged by EA letter ref DM-24-510.",
+        "humanInputAnswer": "Yes; EA receipt DM-24-510 dated 15-Sep-2024.",
+        "llmGeneratedAnswer": "Yes. Application IED-APP-042 acknowledged \u2018duly made\u2019 on 2024-09-15.\n\nCITATIONS\nEA Letter DM-24-510, p-1 \u201c\u2026application deemed complete under Reg 9(1).\u201d",
+        "badExampleAnswer": "Application in progress; no receipt yet."
+      },
+      "question_23": {
+        "id": 23,
+        "old_question_text": "Does the permit application include a baseline report?",
+        "questionText": "Does the baseline report describe soil & groundwater conditions, list relevant hazardous substances, and provide a sampling plan, fulfilling Article 22 and Commission Guidance 2014/C 136/03?",
+        "simplifiedQuestion": "Did you include a soil/groundwater baseline?",
+        "reference": "Directive 2010/75/EU Art 22",
+        "priority": "Medium",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Baseline Soil & GW Report",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Baseline report"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Baseline soil & groundwater report",
+        "verification_method": [
+          "Document Review",
+          "Sampling Data Check"
+        ],
+        "verificationMethods": "Auditor checks parameter list vs guidance.",
+        "nonconformity": {
+          "major": "Baseline report missing",
+          "minor": "Sampling grid sparse"
+        },
+        "majorNonconformity": "No baseline; permit cannot be issued.",
+        "minorNonconformity": "Sampling density below guidance.",
+        "whatThisMeans": "Baseline needed for contamination assessment at site closure.",
+        "complianceRequires": "- Substance inventory\n- Sample plan\n- Analytical results",
+        "expertTip": "Include lab CoCs; regulators request them later.",
+        "recommendedEvidence": "- Baseline report PDF\n- Lab certificates",
+        "recommendedActions": "- Follow C(2014) NWIP guidance for sampling grid",
+        "sampleResponseTemplate": "Baseline Report BR-2024-01 (Aug 2024) covers heavy metals, hydrocarbons; all below detection.",
+        "humanInputAnswer": "Baseline completed; samples taken April 2024\u2014no contamination found.",
+        "llmGeneratedAnswer": "Yes. BR-2024-01 provides baseline concentrations; no relevant hazardous substances exceed background.\n\nCITATIONS\nBR-2024-01, Table 5 \u201c\u2026all analytes < LOD.\u201d",
+        "badExampleAnswer": "Plan to do baseline later."
+      },
+      "question_24": {
+        "id": 24,
+        "old_question_text": "Are Best Available Techniques (BAT) conclusions applied in the permit?",
+        "questionText": "Has the application demonstrated compliance with BAT reference documents (LCP BREF 2017/1442) and provided justification where deviations from BAT-AEL ranges are proposed?",
+        "simplifiedQuestion": "Have you justified how you meet BAT?",
+        "reference": "Directive 2010/75/EU Art 14",
+        "priority": "High",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "BAT Compliance Justification",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "BAT comparison table"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "BAT-AEL comparison table",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor reviews each BAT-AEL vs design.",
+        "nonconformity": {
+          "major": "No BAT justification",
+          "minor": "Partial BAT comparison"
+        },
+        "majorNonconformity": "ELVs exceed BAT-AEL without justification.",
+        "minorNonconformity": "Two BAT measures marked \u2018N/A\u2019 without reason.",
+        "whatThisMeans": "BAT demonstration is core to IED permitting.",
+        "complianceRequires": "- BAT table\n- Deviations justified\n- Energy efficiency BATs covered",
+        "expertTip": "Provide manufacturer guarantees to substantiate BAT-AEL compliance.",
+        "recommendedEvidence": "- BAT table PDF\n- Equipment spec sheets",
+        "recommendedActions": "- Update BAT table when technology/ELVs change",
+        "sampleResponseTemplate": "BAT table BT-2024-02 shows NO\u2093 achieved 170 mg/Nm\u00b3 vs BAT-AEL 190\u2013300.",
+        "humanInputAnswer": "Yes; diesel gensets meet BAT-AELs; deviation for dust justified by low-sulphur fuel.",
+        "llmGeneratedAnswer": "Yes. Table BT-2024-02 demonstrates compliance with all 33 BAT conclusions; NO\u2093 170 mg/Nm\u00b3 < 190\u2013300 BAT-AEL.\n\nCITATIONS\nBT-2024-02, Row 5 \u201c\u2026measured NO\u2093 170 mg/Nm\u00b3, within BAT range.\u201d",
+        "badExampleAnswer": "BAT mostly not relevant to data centres."
+      },
+      "question_25": {
+        "id": 25,
+        "old_question_text": "Does the permit specify emission limit values (ELVs)?",
+        "questionText": "Do draft permit conditions include ELVs for NO\u2093, SO\u2082 and dust that meet or improve on Annex V Part 2 and stricter national limits where applicable?",
+        "simplifiedQuestion": "Does your permit specify pollutant limits?",
+        "reference": "Directive 2010/75/EU Annex V Part 2",
+        "reference_nat": {
+          "Germany": "13. BImSchV Anlage 2 Zeile 1",
+          "Ireland": "IE Licence Schedule B.1",
+          "UK": "EP Regs Sch 7 Pt 2A Table 3",
+          "Austria": "IV. BImSchV Anhang 5",
+          "France": "Arr\u00eat\u00e9 26/08/2013 Annexe III"
+        },
+        "limits": {
+          "parameter": "NOx (as NO\u2082)",
+          "units": "mg/Nm\u00b3 dry @6 % O\u2082",
+          "category": "Existing LCP diesel \u226550 MWth",
+          "values": {
+            "Germany": 450,
+            "Ireland": 450,
+            "UK": 450,
+            "Austria": 450,
+            "France": 450
+          }
+        },
+        "priority": "High",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "ELVs in Permit",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Draft permit with ELVs"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Draft permit schedules",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor verifies numeric ELVs \u2264 legal max.",
+        "nonconformity": {
+          "major": "ELVs above legal limit",
+          "minor": "Units or O\u2082 reference missing"
+        },
+        "majorNonconformity": "Draft permit proposes NO\u2093 550 mg/Nm\u00b3 (limit 450).",
+        "minorNonconformity": "ELVs given without O\u2082 correction.",
+        "whatThisMeans": "Permits must meet EU & national ELV ceilings.",
+        "complianceRequires": "- Numerical ELVs\n- National stricter limits considered",
+        "expertTip": "Quote ELVs in both mg/Nm\u00b3 and lb/MMBtu if authority uses US units.",
+        "recommendedEvidence": "- Draft permit PDF",
+        "recommendedActions": "- Revise ELVs after stack-test validation",
+        "sampleResponseTemplate": "Draft Permit Schedule B proposes NO\u2093 190 mg/Nm\u00b3, SO\u2082 10 mg/Nm\u00b3.",
+        "humanInputAnswer": "ELVs set at BAT-AEL low-end (NO\u2093 170 mg/Nm\u00b3).",
+        "llmGeneratedAnswer": "Yes. Draft Permit Schedule B sets NO\u2093 170 mg/Nm\u00b3, SO\u2082 10 mg/Nm\u00b3, PM 5 mg/Nm\u00b3.\n\nCITATIONS\nDraft Permit v1, Schedule B.1.",
+        "badExampleAnswer": "Permit will set limits later."
+      },
+      "question_26": {
+        "id": 26,
+        "old_question_text": "Was public consultation conducted for the draft permit?",
+        "questionText": "Has the authority published the draft IED permit, opened a statutory consultation period (\u226530 days), and has the developer recorded and responded to any submissions?",
+        "simplifiedQuestion": "Was the draft permit open to public comment?",
+        "reference": "Directive 2010/75/EU Art 24",
+        "priority": "Medium",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Draft Permit Public Consultation",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf",
+            "xlsx"
+          ],
+          "description": "Public-consultation notice & comment log"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf, xlsx",
+        "documentDescriptor": "Notice & comment matrix",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks comment log vs responses.",
+        "nonconformity": {
+          "major": "No consultation period",
+          "minor": "Consultation <30 days"
+        },
+        "majorNonconformity": "Draft permit issued without public notice.",
+        "minorNonconformity": "Notice 21 days only.",
+        "whatThisMeans": "Public participation is mandatory under IED.",
+        "complianceRequires": "- Draft permit online\n- \u226530-day comment window\n- Response log",
+        "expertTip": "Time the EIA and IED consultations to overlap where possible.",
+        "recommendedEvidence": "- Screenshot of public portal\n- Comment/response matrix",
+        "recommendedActions": "- Publish FAQ to clarify complex permit clauses",
+        "sampleResponseTemplate": "Draft permit posted 1 Oct\u20131 Nov 2024; two submissions addressed (matrix CP-IED-1).",
+        "humanInputAnswer": "Yes; public notice PN-IED-05 posted 1 Oct 2024.",
+        "llmGeneratedAnswer": "Yes. Draft permit was open 01 Oct \u2013 01 Nov 2024; two public submissions received and addressed.\n\nCITATIONS\nPublic Notice PN-IED-05, Planning Portal ref 54321.",
+        "badExampleAnswer": "Consultation not needed; site remote."
+      },
+      "question_27": {
+        "id": 27,
+        "old_question_text": "Does the permit require periodic monitoring?",
+        "questionText": "Do permit conditions mandate continuous or periodic stack monitoring for NO\u2093, SO\u2082 and dust, specify standard methods, minimum frequency and data-reporting format?",
+        "simplifiedQuestion": "Does your permit define monitoring frequency & methods?",
+        "reference": "Directive 2010/75/EU Art 16",
+        "priority": "Medium",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Monitoring Conditions",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Permit monitoring schedule"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Monitoring schedule in permit",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor compares methods vs EN standards.",
+        "nonconformity": {
+          "major": "No monitoring specified",
+          "minor": "Method not standardised"
+        },
+        "majorNonconformity": "Permit lacks monitoring of PM.",
+        "minorNonconformity": "Frequency undefined.",
+        "whatThisMeans": "Monitoring verifies compliance with ELVs.",
+        "complianceRequires": "- Pollutant list\n- EN 15259, EN 14792 methods\n- Frequency & averaging",
+        "expertTip": "Add condition for zero-span calibration every 24 h.",
+        "recommendedEvidence": "- Permit Schedule C",
+        "recommendedActions": "- Install CEMS before commissioning",
+        "sampleResponseTemplate": "Schedule C: NO\u2093 CEMS (EN 14181) continuous; SO\u2082 quarterly (EN 14791).",
+        "humanInputAnswer": "Yes; permit condition C.3 defines CEMS and quarterly tests.",
+        "llmGeneratedAnswer": "Yes. Condition C.3 requires NO\u2093 CEMS (EN 14181), SO\u2082 quarterly iso-kinetic tests (EN 14791), PM quarterly (EN 13284-1).\n\nCITATIONS\nPermit Schedule C, Table C-1.",
+        "badExampleAnswer": "We\u2019ll decide monitoring later."
+      },
+      "question_28": {
+        "id": 28,
+        "old_question_text": "Are monitoring results submitted to the competent authority?",
+        "questionText": "Is there a procedure to submit quarterly CEMS data and annual spot-test results in the authority\u2019s electronic format within regulatory deadlines?",
+        "simplifiedQuestion": "Do you send emissions data on time?",
+        "reference": "Directive 2010/75/EU Art 16(2)",
+        "priority": "Medium",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Reporting of Monitoring Data",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Reporting SOP & latest submission receipt"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Emission-data submission proof",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks SOP & receipt emails.",
+        "nonconformity": {
+          "major": "No reporting procedure",
+          "minor": "Latest quarter not submitted"
+        },
+        "majorNonconformity": "No emission reports sent for 2 years.",
+        "minorNonconformity": "One quarterly file submitted late.",
+        "whatThisMeans": "Timely reporting is enforceable; late file = offense.",
+        "complianceRequires": "- SOP for data submission\n- Receipts stored",
+        "expertTip": "Automate CEMS CSV upload via authority API.",
+        "recommendedEvidence": "- SOP DOC-REP-01\n- Email with upload confirmation",
+        "recommendedActions": "- Create calendar reminders 5 days before deadline",
+        "sampleResponseTemplate": "Q1-2025 data uploaded 12 Apr 2025; receipt EA-RPT-4321.",
+        "humanInputAnswer": "Yes; all quarters 2024 submitted before deadline.",
+        "llmGeneratedAnswer": "Yes. Quarterly NO\u2093/SO\u2082 reports (EA receipt RPT-4321) submitted 12 Apr 2025.\n\nCITATIONS\nEA Portal, Submission ID 98765.",
+        "badExampleAnswer": "We\u2019ll upload when asked."
+      },
+      "question_29": {
+        "id": 29,
+        "old_question_text": "Is a site closure and remediation plan available?",
+        "questionText": "Does the operator maintain a Site Closure Plan with equipment removal, hazardous-substance inventory, soil and groundwater verification sampling, reviewed every 5 years?",
+        "simplifiedQuestion": "Do you have a formal site-closure plan?",
+        "reference": "Directive 2010/75/EU Art 22",
+        "priority": "Low",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Site Closure Plan",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Site Closure & Remediation Plan"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Closure plan document",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks plan currency & review log.",
+        "nonconformity": {
+          "major": "No closure plan",
+          "minor": "Plan >5 yrs old"
+        },
+        "majorNonconformity": "Closure plan missing; Article 22 breach.",
+        "minorNonconformity": "Last review 7 years ago.",
+        "whatThisMeans": "Closure plan sets obligations for contamination clean-up.",
+        "complianceRequires": "- Equipment removal steps\n- Sampling & remediation plan\n- Review cycle",
+        "expertTip": "Link closure steps to financial provision/insurance.",
+        "recommendedEvidence": "- Closure Plan CP-01",
+        "recommendedActions": "- Review every 5 yrs or when inventory changes",
+        "sampleResponseTemplate": "CP-01 Rev 2 (Dec 2023) describes soil sampling grid & tank removal.",
+        "humanInputAnswer": "Plan CP-01 updated Dec 2023, next review 2028.",
+        "llmGeneratedAnswer": "Yes. Closure Plan CP-01 Rev 2 reviewed Dec 2023; includes soil sampling and generator-tank decommissioning.\n\nCITATIONS\nCP-01 Rev 2, Section 5 \u201c\u2026verification sampling grid 10 m centres.\u201d",
+        "badExampleAnswer": "We\u2019ll write a closure plan one day."
+      },
+      "question_30": {
+        "id": 30,
+        "old_question_text": "Does the permit include an accident prevention plan?",
+        "questionText": "Has an Accident Prevention & Management Plan been prepared covering diesel spills, fire, ammonia release, with communication protocol and reporting to authority as per Article 7?",
+        "simplifiedQuestion": "Do you have an accident-prevention plan?",
+        "reference": "Directive 2010/75/EU Art 7",
+        "priority": "Medium",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Accident Prevention Plan",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Accident Prevention & Management Plan"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Accident prevention plan",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks scenarios vs onsite hazards.",
+        "nonconformity": {
+          "major": "Plan missing critical scenario",
+          "minor": "Plan not rehearsed"
+        },
+        "majorNonconformity": "No fire scenario in plan.",
+        "minorNonconformity": "Drill overdue >1 yr.",
+        "whatThisMeans": "IED requires measures to prevent & limit accidents.",
+        "complianceRequires": "- Scenario list\n- Emergency contacts\n- Drill schedule",
+        "expertTip": "Align plan with Seveso/COMAH if diesel >50 t.",
+        "recommendedEvidence": "- Accident Plan AP-01\n- Drill records",
+        "recommendedActions": "- Conduct annual drills\n- Update contacts quarterly",
+        "sampleResponseTemplate": "AP-01 Rev 1 lists diesel spill, fire, ammonia leak; drill completed 05 Apr 2024.",
+        "humanInputAnswer": "Yes; AP-01 covers all scenarios; last drill 5 Apr 24.",
+        "llmGeneratedAnswer": "Yes. Accident Plan AP-01 covers diesel spill, fire, ammonia; annual drill logged 2024-04-05.\n\nCITATIONS\nAP-01 Rev 1, Table 3 \u201c\u2026diesel spill bund capacity 110 %.\"",
+        "badExampleAnswer": "Fire brigade knows what to do."
+      },
+      "question_31": {
+        "id": 31,
+        "old_question_text": "Are energy efficiency measures included in the permit?",
+        "questionText": "Do the permit conditions or operator\u2019s EMS include specific energy-efficiency measures\u2014e.g., PUE targets, variable-speed drives, waste-heat recovery\u2014referencing BAT conclusion 19 (Commission Implementing Decision 2017/1442) and Article 11(c)?",
+        "simplifiedQuestion": "Are energy-efficiency measures specified in your permit?",
+        "reference": "Directive 2010/75/EU Art 11(c); BAT 19 (2017/1442)",
+        "priority": "Medium",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Energy-Efficiency Conditions",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Permit energy-efficiency schedule / EMS procedure"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Energy-efficiency section of permit or EMS",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks PUE targets vs permit.",
+        "nonconformity": {
+          "major": "No efficiency measures in permit",
+          "minor": "Targets lack baseline"
+        },
+        "majorNonconformity": "Permit omits BAT 19 energy-use conditions.",
+        "minorNonconformity": "PUE target stated but no baseline year.",
+        "whatThisMeans": "IED requires resource-efficient operation; regulators enforce PUE and waste-heat benchmarks.",
+        "complianceRequires": "- Numerical PUE or kWh/IT-load target\n- Monitoring & reporting route\n- Review interval",
+        "expertTip": "Align permit PUE target with corporate Net-Zero roadmap for consistency.",
+        "recommendedEvidence": "- Permit condition extract\n- EMS procedure EN-01",
+        "recommendedActions": "- Baseline current PUE monthly\n- Integrate targets into KPI dashboard",
+        "sampleResponseTemplate": "Permit Condition C12 sets PUE \u2264 1.30 rolling 12-month average; EMS Doc EN-01 details monitoring.",
+        "humanInputAnswer": "Yes; PUE \u2264 1.30, waste-heat reuse \u2265 20 % of IT load.",
+        "llmGeneratedAnswer": "Yes. Condition C12 requires PUE \u2264 1.30 and quarterly reporting; EMS procedure EN-01 implemented.\n\nCITATIONS\nPermit Schedule C, Condition 12 \u201cPUE rolling average \u2264 1.30.\u201d",
+        "badExampleAnswer": "We try to be efficient."
+      },
+      "question_32": {
+        "id": 32,
+        "old_question_text": "Has the installation been classified under the correct activity category?",
+        "questionText": "Does the permit file show the correct Annex I activity code (1.1 a/b) for gas/diesel engines and does the aggregation under Article 29 reflect simultaneous operation scenarios?",
+        "simplifiedQuestion": "Is your plant filed under the right IED category?",
+        "reference": "Directive 2010/75/EU Annex I 1.1; Art 29",
+        "priority": "Low",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Annex I Classification",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Permit application classification sheet"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Annex I activity classification",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor confirms code vs fuel/size.",
+        "nonconformity": {
+          "major": "Wrong Annex code",
+          "minor": "Aggregation note missing"
+        },
+        "majorNonconformity": "Filed as 1.1(a) but uses heavy fuel.",
+        "minorNonconformity": "Aggregation justification absent.",
+        "whatThisMeans": "Mis-classification can invalidate permit.",
+        "complianceRequires": "- Correct code\n- Aggregation rationale",
+        "expertTip": "Include a one-pager explaining Article 29 aggregation.",
+        "recommendedEvidence": "- Classification sheet CL-IED",
+        "recommendedActions": "- Review classification at each engine addition",
+        "sampleResponseTemplate": "Classified as Annex I 1.1(a) diesel; aggregation includes all backup-gensets.",
+        "humanInputAnswer": "Yes; classification sheet CL-IED-v2 signed.",
+        "llmGeneratedAnswer": "Yes. Activity correctly classified Annex I 1.1(a) (diesel) with aggregation note per Art 29.\n\nCITATIONS\nClassification Sheet CL-IED-v2.",
+        "badExampleAnswer": "We used category 1.4 because it seemed close."
+      },
+      "question_33": {
+        "id": 33,
+        "old_question_text": "Does the permit specify conditions for material consumption and waste?",
+        "questionText": "Are diesel, lube-oil, coolant and chemical usage limits or management conditions included in the permit schedule, with waste-oil and filter disposal routes approved, satisfying Article 11(d)?",
+        "simplifiedQuestion": "Does the permit address resource use & waste?",
+        "reference": "Directive 2010/75/EU Art 11(d)",
+        "priority": "Medium",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Resource & Waste Conditions",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Permit resource/waste conditions"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Schedule for resources & waste",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor reviews waste codes & disposal routes.",
+        "nonconformity": {
+          "major": "No waste conditions",
+          "minor": "Diesel usage limit missing"
+        },
+        "majorNonconformity": "No waste-oil disposal condition.",
+        "minorNonconformity": "Annual diesel-use cap not defined.",
+        "whatThisMeans": "IED covers efficient use of raw materials and waste prevention.",
+        "complianceRequires": "- Usage limits or management plan\n- Waste codes & contractor",
+        "expertTip": "Link permit waste codes to ERP waste-tracking module.",
+        "recommendedEvidence": "- Permit Schedule D",
+        "recommendedActions": "- Check waste contractor licences annually",
+        "sampleResponseTemplate": "Schedule D lists waste-oil EWC 13 02 06; disposal via licensed contractor Ref WCC-552.",
+        "humanInputAnswer": "Yes; diesel cap 1.2 ML/yr; lube-oil waste contract in place.",
+        "llmGeneratedAnswer": "Yes. Permit Schedule D sets yearly diesel cap 1.2 ML and requires quarterly waste-oil consignment notes.\n\nCITATIONS\nPermit Schedule D, Row 4.",
+        "badExampleAnswer": "Waste handled by facilities team."
+      },
+      "question_34": {
+        "id": 34,
+        "old_question_text": "Are ELVs based on normal operating conditions?",
+        "questionText": "Do ELVs exclude validated start-up and shut-down periods, malfunction events and maintenance operations, with logging per Article 15(3) and national provisions?",
+        "simplifiedQuestion": "Are limits tied to normal running only?",
+        "reference": "Directive 2010/75/EU Art 15(3)",
+        "reference_nat": {
+          "Germany": "13. BImSchV \u00a78(1)",
+          "Ireland": "IE Licence Condition B.2",
+          "UK": "EP Regs Sch 7, Part 2A",
+          "Austria": "GewO \u00a777c(2)",
+          "France": "ICPE arr\u00eat\u00e9 02/02/1998 Art 27"
+        },
+        "priority": "Low",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Operating-Condition Definition",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Permit clause on operating conditions"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Operating-condition clause",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks clause wording.",
+        "nonconformity": {
+          "major": "ELVs apply to start-up",
+          "minor": "Logging procedure absent"
+        },
+        "majorNonconformity": "Permit applies ELVs during cold start.",
+        "minorNonconformity": "No logbook for excluding periods.",
+        "whatThisMeans": "ELVs are set for stable conditions; exceedance during start-up can be exempt if logged.",
+        "complianceRequires": "- Permit clause\n- Logging SOP",
+        "expertTip": "Automate engine runtime logs to flag start-up minutes.",
+        "recommendedEvidence": "- Permit clause extract\n- Engine log sample",
+        "recommendedActions": "- Implement digital logbook",
+        "sampleResponseTemplate": "Condition B2.5 exempts first 30 min of start-up; logs kept in CEMS.",
+        "humanInputAnswer": "Yes; ELVs apply only post-stabilisation.",
+        "llmGeneratedAnswer": "Yes. Condition B2.5 excludes first 20 min after ignition; engine PLC logs uploaded to EMS.\n\nCITATIONS\nLicence Condition B2.5, IE-LIC-134.",
+        "badExampleAnswer": "ELVs apply all the time."
+      },
+      "question_35": {
+        "id": 35,
+        "old_question_text": "Has the operator demonstrated capability to meet permit conditions?",
+        "questionText": "Has a Compliance Assurance Statement been submitted, detailing organisation, competence, budget and technology to achieve ELVs and monitoring obligations under Article 14(1)(d)?",
+        "simplifiedQuestion": "Can you prove you can meet permit conditions?",
+        "reference": "Directive 2010/75/EU Art 14(1)(d)",
+        "priority": "Medium",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Compliance Assurance Capacity",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Compliance Assurance Statement"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "CAS document",
+        "verification_method": [
+          "Document Review",
+          "Interview"
+        ],
+        "verificationMethods": "Auditor reviews CAS; interviews operations staff.",
+        "nonconformity": {
+          "major": "No assurance statement",
+          "minor": "Roles unclear"
+        },
+        "majorNonconformity": "No CAS on file.",
+        "minorNonconformity": "Training records missing.",
+        "whatThisMeans": "Regulator expects proof of operational control.",
+        "complianceRequires": "- Org chart\n- Competence matrix\n- Budget allocation",
+        "expertTip": "Tie training matrix to ISO 45001 skills module.",
+        "recommendedEvidence": "- CAS PDF\n- Training records",
+        "recommendedActions": "- Update CAS annually",
+        "sampleResponseTemplate": "CAS Rev 1 lists roles, budget \u20ac1 m/y for CEMS.",
+        "humanInputAnswer": "Yes; CAS Rev 1 approved Feb 24.",
+        "llmGeneratedAnswer": "Yes. CAS Rev 1 (2024-02-15) details staff roles, \u00a31 m CEMS OPEX.\n\nCITATIONS\nCAS Rev 1, Section 3.",
+        "badExampleAnswer": "We\u2019re confident we can comply."
+      },
+      "question_36": {
+        "id": 36,
+        "old_question_text": "Is there a regular permit review mechanism in place?",
+        "questionText": "Has the operator established a permit-review tracker ensuring formal review at least every four years or when new BAT conclusions apply, satisfying Article 21?",
+        "simplifiedQuestion": "Do you track permit review dates?",
+        "reference": "Directive 2010/75/EU Art 21",
+        "priority": "Low",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Permit Review Tracker",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "xlsx"
+          ],
+          "description": "Permit review schedule"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "xlsx",
+        "documentDescriptor": "Permit review calendar",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks tracker dates.",
+        "nonconformity": {
+          "major": "No review tracker",
+          "minor": "Review overdue"
+        },
+        "majorNonconformity": "Permit review overdue by 2 years.",
+        "minorNonconformity": "Tracker lists review but no owner.",
+        "whatThisMeans": "Regulator may reopen permit when BAT updates.",
+        "complianceRequires": "- Review calendar\n- Owner assigned",
+        "expertTip": "Set MS Outlook reminders 6 months pre-deadline.",
+        "recommendedEvidence": "- Tracker spreadsheet",
+        "recommendedActions": "- Assign permit owner",
+        "sampleResponseTemplate": "Tracker shows next review 2027-03-01; reminder set.",
+        "humanInputAnswer": "Yes; tracker PT-01 in EMS.",
+        "llmGeneratedAnswer": "Yes. Tracker PT-01 identifies next review 01-Mar-2027.\n\nCITATIONS\nPT-01, Row 5.",
+        "badExampleAnswer": "We\u2019ll review when regulator asks."
+      },
+      "question_37": {
+        "id": 37,
+        "old_question_text": "Is the permit publicly accessible?",
+        "questionText": "Has the final IED permit (with sensitive details redacted) been uploaded to the public register or company website, meeting Article 24 transparency requirements?",
+        "simplifiedQuestion": "Is your permit available to the public?",
+        "reference": "Directive 2010/75/EU Art 24",
+        "priority": "Low",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Permit Publication",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "url",
+            "pdf"
+          ],
+          "description": "Public link or register entry"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "url, pdf",
+        "documentDescriptor": "Public-access permit link",
+        "verification_method": [
+          "Website Check"
+        ],
+        "verificationMethods": "Auditor opens link; checks permit.",
+        "nonconformity": {
+          "major": "Permit not public",
+          "minor": "Broken web link"
+        },
+        "majorNonconformity": "Permit not on public register.",
+        "minorNonconformity": "Link returns 404.",
+        "whatThisMeans": "Transparency obligation; non-compliance draws NGO complaints.",
+        "complianceRequires": "- Public link\n- Redacted confidential data",
+        "expertTip": "Use permanent DOI link; avoid link-rot.",
+        "recommendedEvidence": "- Screenshot of web page",
+        "recommendedActions": "- Check link quarterly",
+        "sampleResponseTemplate": "Permit published at https://permits.gov/DC-IED-2024.",
+        "humanInputAnswer": "Yes; permit online since 01-Dec-2024.",
+        "llmGeneratedAnswer": "Yes. Permit available on EA portal (ID 42442) since 01-Dec-2024.\n\nCITATIONS\nEA Portal record 42442.",
+        "badExampleAnswer": "We\u2019ll upload when asked."
+      },
+      "question_38": {
+        "id": 38,
+        "old_question_text": "Are enforcement procedures in place?",
+        "questionText": "Does the authority maintain an inspection & enforcement schedule and does the operator\u2019s EMS include a procedure to address and close out any Improvement or Enforcement Notices under Article 23?",
+        "simplifiedQuestion": "Is there a clear process to handle enforcement notices?",
+        "reference": "Directive 2010/75/EU Art 23",
+        "priority": "Low",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Enforcement Notice Procedure",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "EMS procedure for enforcement notices"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Enforcement-response SOP",
+        "verification_method": [
+          "Document Review",
+          "Interview"
+        ],
+        "verificationMethods": "Auditor reviews SOP & past notices.",
+        "nonconformity": {
+          "major": "No enforcement procedure",
+          "minor": "Procedure not trained"
+        },
+        "majorNonconformity": "Received Notice not actioned.",
+        "minorNonconformity": "Staff unaware of SOP.",
+        "whatThisMeans": "Timely action avoids prosecution.",
+        "complianceRequires": "- SOP for notices\n- Responsibility & timeline",
+        "expertTip": "Link SOP to CAPA system for tracking actions.",
+        "recommendedEvidence": "- SOP DOC-ENF-01\n- Past notice close-out report",
+        "recommendedActions": "- Train staff annually",
+        "sampleResponseTemplate": "SOP DOC-ENF-01 defines 14-day response; last notice closed.",
+        "humanInputAnswer": "Procedure in place; no open notices.",
+        "llmGeneratedAnswer": "Yes. SOP DOC-ENF-01 followed; last EA Improvement Notice closed 2024-08-05.\n\nCITATIONS\nImprovement Notice Close-out Report IN-2024-02.",
+        "badExampleAnswer": "Regulator never inspects us."
+      },
+      "question_39": {
+        "id": 39,
+        "old_question_text": "Is there a citizen-complaint procedure?",
+        "questionText": "Has the facility published a complaints hotline/email, logged complaint handling, and reported outcomes annually as required by Article 25?",
+        "simplifiedQuestion": "Can the public complain & see results?",
+        "reference": "Directive 2010/75/EU Art 25",
+        "priority": "Low",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Public Complaint Handling",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf",
+            "xlsx"
+          ],
+          "description": "Complaint procedure & log"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf, xlsx",
+        "documentDescriptor": "Complaint SOP & register",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor samples complaint log entries.",
+        "nonconformity": {
+          "major": "No complaint procedure",
+          "minor": "Log incomplete"
+        },
+        "majorNonconformity": "Public complaints ignored.",
+        "minorNonconformity": "Log lacks resolution dates.",
+        "whatThisMeans": "Public right to complain is enforceable under IED.",
+        "complianceRequires": "- Contact details public\n- Log with status/resolution\n- Annual summary to authority",
+        "expertTip": "Publish complaint statistics on website.",
+        "recommendedEvidence": "- SOP PUB-COMP-01\n- Complaint log CL-2024",
+        "recommendedActions": "- Review complaints quarterly",
+        "sampleResponseTemplate": "Complaint SOP PUB-COMP-01 posted on website; no complaints 2023-24.",
+        "humanInputAnswer": "Yes; hotline + log CL-2024 kept.",
+        "llmGeneratedAnswer": "Yes. SOP PUB-COMP-01, hotline + email active; no complaints recorded in 2024.\n\nCITATIONS\nCL-2024 Annual Report.",
+        "badExampleAnswer": "Community knows who to call."
+      },
+      "question_40": {
+        "id": 40,
+        "old_question_text": "Has the installation received the final IED permit decision?",
+        "questionText": "Is the signed and dated final IED permit (including all schedules and annexes) on file, and is its reference number recorded in the EMS legal register?",
+        "simplifiedQuestion": "Do you have the final signed IED permit?",
+        "reference": "Directive 2010/75/EU Art 5",
+        "priority": "High",
+        "stepSection": "IED Step 1",
+        "recommendationTitle": "Final IED Permit on File",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Final IED permit"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Signed final permit",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor verifies signature & annexes.",
+        "nonconformity": {
+          "major": "Permit missing",
+          "minor": "Annexes missing"
+        },
+        "majorNonconformity": "Site operating before permit signed.",
+        "minorNonconformity": "Annex F (noise map) missing.",
+        "whatThisMeans": "Operating without final permit breaches national law.",
+        "complianceRequires": "- Signed permit\n- All schedules/annexes\n- EMS register entry",
+        "expertTip": "Record permit in ISO 14001 legal register module.",
+        "recommendedEvidence": "- Permit PDF\n- EMS legal-register entry",
+        "recommendedActions": "- Scan original; store encrypted backup",
+        "sampleResponseTemplate": "Final IED Permit IE-LIC-134 signed 15 Dec 2024 filed in EMS.",
+        "humanInputAnswer": "Yes; final permit IE-LIC-134 stored.",
+        "llmGeneratedAnswer": "Yes. Signed Permit IE-LIC-134 dated 15-Dec-2024 stored in EMS; legal register updated.\n\nCITATIONS\nEMS Legal Register entry LR-IED-134.",
+        "badExampleAnswer": "Permit still draft."
+      }
+    }
+  },
+  "step_2": {
+    "label": "Medium Combustion Plant Directive (MCPD)",
+    "directive": "Directive (EU) 2015/2193",
+    "description": "Regulates emissions from combustion plants 1\u201350 MWth, incl. backup generators.",
+    "reviewers": [
+      "CombustionEngineer",
+      "AirQualityOfficer"
+    ],
+    "critical_questions": [
+      41,
+      45,
+      50,
+      55,
+      60
+    ],
+    "tooltip": {
+      "Ireland": "MCPD via S.I. 595/2017; EPA public register.",
+      "UK": "EP Regs (Amend.) 2018; register via Environment Agency/SEPA/NRW.",
+      "Austria": "Implemented by BGBl II 75/2018; provincial enforcement.",
+      "Germany": "44. BImSchV; reporting through BUBE-online.",
+      "France": "ICPE update 2018; Pr\u00e9fecture/DREAL manage permits."
+    },
+    "questions": {
+      "question_41": {
+        "id": 41,
+        "old_question_text": "Does the facility include combustion plants between 1 and 50 MWth?",
+        "questionText": "Has the operator prepared a complete inventory of every combustion plant on site with a rated thermal input between 1 MWth and 50 MWth, classifying each as new or existing in accordance with Article 2(2), and including serial number, fuel type, commissioning date and maximum average operating hours?",
+        "simplifiedQuestion": "Do you have an inventory of all 1-50 MW engines/boilers?",
+        "reference": "Directive 2015/2193 Art 2 & Art 4",
+        "priority": "High",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "MCP Inventory",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "xlsx",
+            "pdf"
+          ],
+          "description": "MCP inventory spreadsheet"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "xlsx, pdf",
+        "documentDescriptor": "Inventory sheet listing each MCP",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks list vs site walk-through.",
+        "nonconformity": {
+          "major": "Incomplete MCP list",
+          "minor": "Commissioning dates missing"
+        },
+        "majorNonconformity": "Two standby gensets not on inventory.",
+        "minorNonconformity": "Serial numbers missing for boilers.",
+        "whatThisMeans": "Inventory underpins registration, monitoring and reporting duties.",
+        "complianceRequires": "- All MCPs listed\n- Rated thermal input\n- New/existing status",
+        "expertTip": "Include hourly-counter data to track \u2264 500 h emergency exemption.",
+        "recommendedEvidence": "- Inventory XLS\n- Photo log of nameplates",
+        "recommendedActions": "- Update inventory when equipment added/removed",
+        "sampleResponseTemplate": "Inventory INV-MCP-01 (v2) lists 6 diesel gensets (3.2 MWth) & 2 gas boilers (4.5 MWth).",
+        "humanInputAnswer": "Yes; inventory INV-MCP-01 covers eight MCPs, with commissioning dates and serials.",
+        "llmGeneratedAnswer": "Yes. Inventory INV-MCP-01 dated 2024-09-15 lists 8 MCPs (total 27.4 MWth) and classifies all as new under Art 2(2).\n\nCITATIONS\nINV-MCP-01, Table 1.",
+        "badExampleAnswer": "We have some generators but no formal list."
+      },
+      "question_42": {
+        "id": 42,
+        "old_question_text": "Is each MCP registered or permitted?",
+        "questionText": "Have registration certificates (existing MCPs) or permits (new MCPs) been obtained for every listed combustion plant and posted in the EMS, with the MCP ID numbers displayed on-site per Article 4?",
+        "simplifiedQuestion": "Do you have a permit/registration for each MCP?",
+        "reference": "Directive 2015/2193 Art 4(1)",
+        "priority": "High",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "MCP Registration Certificates",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Certificates or permits for each MCP"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "MCP permits/registrations",
+        "verification_method": [
+          "Document Review",
+          "Site Inspection"
+        ],
+        "verificationMethods": "Auditor matches certificates to equipment plates.",
+        "nonconformity": {
+          "major": "MCP operating unregistered",
+          "minor": "Certificate expired"
+        },
+        "majorNonconformity": "Boiler B-02 operating without registration.",
+        "minorNonconformity": "Certificate for GEN-05 expired April 2024.",
+        "whatThisMeans": "Operating MCPs without registration is prohibited.",
+        "complianceRequires": "- Registration or permit per unit\n- Certificate posted on-site",
+        "expertTip": "Keep a matrix linking inventory ID to certificate number.",
+        "recommendedEvidence": "- PDF certificates\n- Site photos of ID plates",
+        "recommendedActions": "- Renew certificates before expiry",
+        "sampleResponseTemplate": "Certificates MCP-REG-001 to -008 valid until 31 Dec 2030; copies in EMS.",
+        "humanInputAnswer": "All eight MCPs registered; certificates scanned.",
+        "llmGeneratedAnswer": "Yes. Registration numbers IRL-MCP-2024-001 to 008 issued 01-Oct-2024.\n\nCITATIONS\nRegistration Cert IRL-MCP-2024-001.",
+        "badExampleAnswer": "Permits in progress."
+      },
+      "question_43": {
+        "id": 43,
+        "old_question_text": "Are stack heights and discharge conditions assessed for air quality impact?",
+        "questionText": "Has an air-dispersion modelling report (AERMOD/ADMS) justified stack height and demonstrated compliance with ambient air-quality standards for NO\u2082, SO\u2082 and PM10 at nearest receptors, filed with the MCP registration?",
+        "simplifiedQuestion": "Have you modelled your stacks for air-quality impact?",
+        "reference": "Directive 2015/2193 Art 6",
+        "priority": "Medium",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Stack-Height Dispersion Assessment",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Dispersion model report"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Air-dispersion modelling report",
+        "verification_method": [
+          "Document Review",
+          "Technical Assessment"
+        ],
+        "verificationMethods": "Auditor checks receptor grids & max PEC.",
+        "nonconformity": {
+          "major": "No model undertaken",
+          "minor": "Receptor grid too coarse"
+        },
+        "majorNonconformity": "No dispersion assessment submitted.",
+        "minorNonconformity": "Model grid spacing 200 m (> 100 m guidance).",
+        "whatThisMeans": "Stack design must ensure AQ standards are met off-site.",
+        "complianceRequires": "- Model using recognised tool\n- Include cumulative sources\n- Show PEC < limit",
+        "expertTip": "Include worst-case 99.79 %ile hourly NO\u2082 check.",
+        "recommendedEvidence": "- PDF modelling report\n- Input/output files",
+        "recommendedActions": "- Re-run model if engine load changes",
+        "sampleResponseTemplate": "Model MR-MCP-04 shows max annual NO\u2082 21 \u00b5g m-3 (< 40) at nearest house.",
+        "humanInputAnswer": "Yes; model MR-MCP-04 attached.",
+        "llmGeneratedAnswer": "Yes. AERMOD run MR-MCP-04 predicts PEC NO\u2082 21 \u00b5g m-3.\n\nCITATIONS\nMR-MCP-04, Table 7.",
+        "badExampleAnswer": "Stacks are tall so modelling not needed."
+      },
+      "question_44": {
+        "id": 44,
+        "old_question_text": "Are ELVs for SO\u2082, NO\u2093, dust met?",
+        "questionText": "Do stack-test results confirm that each MCP meets the SO\u2082 ELV for existing 15\u201350 MW liquid-fuel plants, taking account of stricter national limits?",
+        "simplifiedQuestion": "Do your engines meet the SO\u2082 limit?",
+        "reference": "Directive 2015/2193 Annex II",
+        "reference_nat": {
+          "Germany": "44. BImSchV Anlage 2 Zeile 5",
+          "Ireland": "S.I. 595/2017 Sch 2 Table A",
+          "UK": "EP Regs 2018 Pt 2A Table 3",
+          "Austria": "BGBl II 75/2018 Anlage 1",
+          "France": "Arr\u00eat\u00e9 30/08/2018 Tableau B"
+        },
+        "limits": {
+          "parameter": "SO2",
+          "units": "mg/Nm\u00b3 dry @3 % O\u2082",
+          "category": "Existing MCP 15\u201350 MWth, liquid fuel",
+          "values": {
+            "Germany": 1700,
+            "Ireland": 2000,
+            "UK": 1700,
+            "Austria": 1700,
+            "France": 2000
+          }
+        },
+        "priority": "High",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "SO\u2082 Emission-Limit Compliance",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Latest stack-test certificate"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Emission test certificate",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor compares result vs ELVs.",
+        "nonconformity": {
+          "major": "SO\u2082 above limit",
+          "minor": "Test frequency overdue"
+        },
+        "majorNonconformity": "SO\u2082 2100 mg/Nm\u00b3 vs DE limit 1700.",
+        "minorNonconformity": "Test 15 months old (> 12).",
+        "whatThisMeans": "Exceeding ELVs triggers enforcement.",
+        "complianceRequires": "- Valid test <12 months\n- Result \u2264 national ELV",
+        "expertTip": "Include fuel sulphur analysis to explain low SO\u2082.",
+        "recommendedEvidence": "- Stack-test report TR-MCP-SO2-24",
+        "recommendedActions": "- Retest after tuning burners",
+        "sampleResponseTemplate": "Test TR-MCP-SO2-24 (May 2024) result 1450 mg/Nm\u00b3 (pass).",
+        "humanInputAnswer": "SO\u2082 1450 mg/Nm\u00b3 \u2264 DE limit 1700.",
+        "llmGeneratedAnswer": "Yes. SO\u2082 test 1450 mg/Nm\u00b3 vs German ELV 1700.\n\nCITATIONS\nStack-Test TR-MCP-SO2-24, p-4.",
+        "badExampleAnswer": "We didn\u2019t test SO\u2082 yet."
+      },
+      "question_45": {
+        "id": 45,
+        "old_question_text": "Are measurement and monitoring systems in place for emissions?",
+        "questionText": "Is a monitoring plan implemented with minimum annual spot-tests or continuous monitoring as required nationally (DE & FR 6-monthly; IE/UK/AT annually) and detailed QA/QC procedures?",
+        "simplifiedQuestion": "Do you monitor emissions as often as required?",
+        "reference": "Directive 2015/2193 Art 7 & Annex III",
+        "reference_nat": {
+          "Germany": "44. BImSchV \u00a712(1)",
+          "Ireland": "EPA Guidance AG2 Sect 4",
+          "UK": "MCERTS M21 Scheme Note",
+          "Austria": "BGBl II 75/2018 \u00a710",
+          "France": "Arr\u00eat\u00e9 30/08/2018 Art 12"
+        },
+        "limits": {
+          "parameter": "Testing_interval",
+          "units": "months",
+          "category": "Liquid-fuel MCP > 5 MW",
+          "values": {
+            "Germany": 6,
+            "Ireland": 12,
+            "UK": 12,
+            "Austria": 12,
+            "France": 6
+          }
+        },
+        "priority": "Medium",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Emission Monitoring Plan",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Monitoring plan & QA/QC"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Monitoring plan document",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks frequency vs national table.",
+        "nonconformity": {
+          "major": "Monitoring plan missing",
+          "minor": "Frequency below national min."
+        },
+        "majorNonconformity": "Only annual tests in Germany (needs 6-monthly).",
+        "minorNonconformity": "QA/QC procedure not included.",
+        "whatThisMeans": "Monitoring proves ongoing compliance; frequency varies by state.",
+        "complianceRequires": "- Plan with pollutants & methods\n- Frequency per national law\n- QA/QC procedures",
+        "expertTip": "Align spot-tests with CEMS calibration schedules.",
+        "recommendedEvidence": "- Monitoring Plan MON-01\n- Latest test certificates",
+        "recommendedActions": "- Update plan if plant modified",
+        "sampleResponseTemplate": "Plan MON-01 sets 6-monthly tests in DE; dates booked Jan/Jul.",
+        "humanInputAnswer": "Yes; 6-monthly test regime adopted for German law.",
+        "llmGeneratedAnswer": "Yes. Monitoring Plan MON-01 schedules 6-monthly stack tests (44. BImSchV \u00a712).\n\nCITATIONS\nMON-01, Table 2.",
+        "badExampleAnswer": "We test when we remember."
+      },
+      "question_46": {
+        "id": 46,
+        "old_question_text": "Are fuel types and sulphur/nitrogen content recorded?",
+        "questionText": "Is every fuel delivery sampled and analysed for sulphur and nitrogen content, logged with batch ID and used to verify SO\u2082/NO\u2093 compliance per Article 8?",
+        "simplifiedQuestion": "Do you record fuel composition for each delivery?",
+        "reference": "Directive 2015/2193 Art 8",
+        "priority": "Medium",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Fuel Composition Records",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "xlsx",
+            "pdf"
+          ],
+          "description": "Fuel analysis certificates & log"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "xlsx, pdf",
+        "documentDescriptor": "Fuel-analysis log",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor samples certificates vs log.",
+        "nonconformity": {
+          "major": "No fuel analyses",
+          "minor": "Certificates not linked to batch"
+        },
+        "majorNonconformity": "No sulphur analyses for diesel deliveries.",
+        "minorNonconformity": "Batch IDs inconsistent.",
+        "whatThisMeans": "Fuel sulphur drives SO\u2082; records required.",
+        "complianceRequires": "- Lab certificate each delivery\n- Log with batch & usage",
+        "expertTip": "Use a QR code on tank dip-sheet linking to cert.",
+        "recommendedEvidence": "- Fuel log FL-24\n- Lab certs",
+        "recommendedActions": "- Reject deliveries > 0.1 % S",
+        "sampleResponseTemplate": "FL-24 logs 0.04 % S diesel; cert LAB-S-145 attached.",
+        "humanInputAnswer": "Yes; all deliveries tested <0.05 % S.",
+        "llmGeneratedAnswer": "Yes. Sulphur 0.045 % w/w; certificates LAB-S-145 to -147 stored.\n\nCITATIONS\nLab Cert LAB-S-145.",
+        "badExampleAnswer": "Supplier said fuel is fine."
+      },
+      "question_47": {
+        "id": 47,
+        "old_question_text": "Are start-up and shut-down emissions assessed?",
+        "questionText": "Has the operator documented that start-up/shut-down periods do not exceed national maximum exclusion (DE 30 min, IE/UK/AT/FR 20 min) and installed logging in the engine PLC to demonstrate compliance?",
+        "simplifiedQuestion": "Do you log start-up minutes vs allowance?",
+        "reference": "Directive 2015/2193 Art 6(3)",
+        "reference_nat": {
+          "Germany": "44. BImSchV \u00a78(4)",
+          "Ireland": "S.I. 595/2017 Reg 11(3)",
+          "UK": "EP Regs 2018 Sch 24A para 8(3)",
+          "Austria": "BGBl II 75/2018 \u00a76(4)",
+          "France": "Arr\u00eat\u00e9 30/08/2018 Art 16"
+        },
+        "limits": {
+          "parameter": "start_up_exclusion",
+          "units": "minutes per start",
+          "category": "All MCPs",
+          "values": {
+            "Germany": 30,
+            "Ireland": 20,
+            "UK": 20,
+            "Austria": 20,
+            "France": 20
+          }
+        },
+        "priority": "Medium",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Start-up/Shut-down Logging",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Engine PLC logs / SOP"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Start-up log evidence",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks logs vs allowance.",
+        "nonconformity": {
+          "major": "Start-up > allowance",
+          "minor": "Logging incomplete"
+        },
+        "majorNonconformity": "Start-up 35 min in Germany (limit 30).",
+        "minorNonconformity": "PLC log gaps for 2 gensets.",
+        "whatThisMeans": "Exceeding exclusion time voids ELV exemption.",
+        "complianceRequires": "- PLC logs\n- SOP for start-up",
+        "expertTip": "Configure alarms at 90 % of allowance.",
+        "recommendedEvidence": "- PLC log PDFs\n- SOP GEN-START",
+        "recommendedActions": "- Tune start-up sequence to 10 min",
+        "sampleResponseTemplate": "PLC logs show average start 9 min; max 18 min (IE limit 20).",
+        "humanInputAnswer": "Yes; logs attached; max start 18 min.",
+        "llmGeneratedAnswer": "Yes. All starts <20 min; German gensets limited to 28 min <30 min.\n\nCITATIONS\nPLC Log GEN01-2024-05-10.",
+        "badExampleAnswer": "Start-up takes as long as it takes."
+      },
+      "question_48": {
+        "id": 48,
+        "old_question_text": "Is each MCP\u2019s commissioning date recorded and available?",
+        "questionText": "Does the inventory state the first date of operation (or substantial refurbishment) to determine compliance deadlines per Article 5?",
+        "simplifiedQuestion": "Do you know when each MCP was first used?",
+        "reference": "Directive 2015/2193 Art 5",
+        "priority": "Low",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Commissioning Dates Recorded",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "xlsx"
+          ],
+          "description": "Inventory with commissioning dates"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "xlsx",
+        "documentDescriptor": "Commissioning date log",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor matches dates to service reports.",
+        "nonconformity": {
+          "major": "Dates missing",
+          "minor": "Date format inconsistent"
+        },
+        "majorNonconformity": "Commission date unknown for 2 gensets.",
+        "minorNonconformity": "Dates mm/yy not dd/mm/yy.",
+        "whatThisMeans": "Compliance deadlines differ new vs existing.",
+        "complianceRequires": "- First-use date per MCP",
+        "expertTip": "Link to warranty certificates.",
+        "recommendedEvidence": "- Inventory sheet",
+        "recommendedActions": "- Capture commissioning in CMMS automatically",
+        "sampleResponseTemplate": "GEN-03 commissioned 14-Mar-2024; recorded in INV-MCP-01.",
+        "humanInputAnswer": "Yes; all dates logged.",
+        "llmGeneratedAnswer": "Yes. All commissioning dates recorded; last genset started 14-Mar-2024.\n\nCITATIONS\nService Report SR-GEN-03.",
+        "badExampleAnswer": "Most engines installed around 2020."
+      },
+      "question_49": {
+        "id": 49,
+        "old_question_text": "Are emergency generator exemptions correctly applied?",
+        "questionText": "Where emergency generators claim < 500 h yr exemption, does the operator keep hour-run logs and annual declarations to the authority per Article 6(5)?",
+        "simplifiedQuestion": "Do you log hours for emergency-only sets?",
+        "reference": "Directive 2015/2193 Art 6(5)",
+        "priority": "Medium",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Emergency Generator Hour Log",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "xlsx",
+            "pdf"
+          ],
+          "description": "Hour-run logs & annual declaration"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "xlsx, pdf",
+        "documentDescriptor": "Annual hours log",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks logged hours <500.",
+        "nonconformity": {
+          "major": "Hours exceed 500 without permit",
+          "minor": "Log gaps"
+        },
+        "majorNonconformity": "GEN-05 ran 642 h in 2024.",
+        "minorNonconformity": "June hours not logged.",
+        "whatThisMeans": "> 500 h invalidates exemption; stricter ELVs apply.",
+        "complianceRequires": "- Hour log per MCP\n- Annual declaration",
+        "expertTip": "Sync PLC run hours to EMS automatically.",
+        "recommendedEvidence": "- Hour-log spreadsheet\n- Declaration letter",
+        "recommendedActions": "- Install runtime limit alarms",
+        "sampleResponseTemplate": "GEN hour log shows 312 h 2024; declaration sent EPA 15 Jan 2025.",
+        "humanInputAnswer": "Yes; all sets <500 h.",
+        "llmGeneratedAnswer": "Yes. GEN runtime 312 h; exemption maintained.\n\nCITATIONS\nRuntime Log RL-2024.",
+        "badExampleAnswer": "We don\u2019t track hours."
+      },
+      "question_50": {
+        "id": 50,
+        "old_question_text": "Is annual emission data reported to the environmental authority?",
+        "questionText": "Does the operator submit annual operating hours, fuel use and measured emissions for each MCP via the authority portal by the statutory deadline (31 Mar or local)?",
+        "simplifiedQuestion": "Do you send your annual MCP report on time?",
+        "reference": "Directive 2015/2193 Art 10",
+        "priority": "High",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Annual MCP Reporting",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Portal submission receipt"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Submission receipt",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks receipt vs deadline.",
+        "nonconformity": {
+          "major": "No annual report",
+          "minor": "Late submission"
+        },
+        "majorNonconformity": "No 2024 report filed.",
+        "minorNonconformity": "Report filed 10 days late.",
+        "whatThisMeans": "Authority can fine for late/absent data.",
+        "complianceRequires": "- Upload by deadline\n- Include all MCPs",
+        "expertTip": "Configure auto-export from EMS to XML upload.",
+        "recommendedEvidence": "- Portal receipt PDF",
+        "recommendedActions": "- Calendar reminder 1 Mar",
+        "sampleResponseTemplate": "Annual MCP return uploaded 28 Feb 2025; receipt ID 98712.",
+        "humanInputAnswer": "Yes; uploaded before deadline.",
+        "llmGeneratedAnswer": "Yes. Annual return Receipt ID 98712 dated 28-Feb-2025.\n\nCITATIONS\nPortal Receipt 98712.",
+        "badExampleAnswer": "Due next month\u2014we\u2019ll do it."
+      },
+      "question_51": {
+        "id": 51,
+        "old_question_text": "Has secondary abatement been assessed or applied where needed?",
+        "questionText": "Where primary measures alone cannot meet ELVs, has SCR, oxidation catalyst or bag-filter technology been evaluated and, if feasible, installed, with efficiency verified by stack tests?",
+        "simplifiedQuestion": "Do you add abatement if raw emissions are high?",
+        "reference": "Directive 2015/2193 Art 6",
+        "priority": "Medium",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Secondary Abatement Assessment",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Abatement feasibility / test report"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Abatement assessment",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor reviews SCR design & test.",
+        "nonconformity": {
+          "major": "ELVs exceeded without abatement",
+          "minor": "Feasibility study missing"
+        },
+        "majorNonconformity": "NO\u2093 exceed ELV; no SCR installed.",
+        "minorNonconformity": "Study not updated post-load increase.",
+        "whatThisMeans": "Plants must apply feasible abatement to meet limits.",
+        "complianceRequires": "- Tech review\n- Efficiency proof\n- Implementation if viable",
+        "expertTip": "Include cost-benefit and payback to justify non-implementation.",
+        "recommendedEvidence": "- Feasibility report\n- Stack test with SCR",
+        "recommendedActions": "- Assess SCR if NO\u2093 > 80 % ELV",
+        "sampleResponseTemplate": "SCR considered; not cost-effective (3 h/yr operation).",
+        "humanInputAnswer": "Not required; raw NO\u2093 150 mg vs ELV 190.",
+        "llmGeneratedAnswer": "Yes. Raw NO\u2093 150 mg Nm\u00b3 < ELV 190 mg Nm\u00b3; abatement not required.\n\nCITATIONS\nStack Test NO\u2093 TR-150-24.",
+        "badExampleAnswer": "SCR expensive, so skipped."
+      },
+      "question_52": {
+        "id": 52,
+        "old_question_text": "Are air dispersion models used to assess MCP impact?",
+        "questionText": "Has a site-wide dispersion model combined emissions from all MCPs to demonstrate compliance with ambient limits and sensitive-receptor thresholds (best practice where required by authority)?",
+        "simplifiedQuestion": "Did you model combined impacts from all MCPs?",
+        "reference": "National Best Practice Guidance (IE EPA AG4, UK IAQM, DE LAI)",
+        "priority": "Low",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Combined Dispersion Modelling",
+        "document_requirements": {
+          "required": false,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Combined dispersion model"
+        },
+        "docRequired": "Conditional",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Combined model report",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor reviews combined PEC vs limit.",
+        "nonconformity": {
+          "major": "Model required but absent",
+          "minor": "Model parameters outdated"
+        },
+        "majorNonconformity": "Authority requested combined model; not provided.",
+        "minorNonconformity": "Weather file outdated.",
+        "whatThisMeans": "Combined modelling may be required for clustered MCPs.",
+        "complianceRequires": "- Combined emission inputs\n- Worst-year met data\n- Result < AQS limit",
+        "expertTip": "Use 5-year met dataset to avoid \u2018worst-case\u2019 anomalies.",
+        "recommendedEvidence": "- Model report",
+        "recommendedActions": "- Update model on adding MCPs",
+        "sampleResponseTemplate": "Combined PEC NO\u2082 28 \u00b5g m-3 < 40 limit.",
+        "humanInputAnswer": "Model run 2024; PEC well below limits.",
+        "llmGeneratedAnswer": "Yes. Combined AERMOD run shows PEC NO\u2082 28 \u00b5g m-3.\n\nCITATIONS\nCombined Model CM-MCP-24.",
+        "badExampleAnswer": "No combined model needed."
+      },
+      "question_53": {
+        "id": 53,
+        "old_question_text": "Is documentation of compliance maintained per MCP?",
+        "questionText": "Are permits, registration certificates, stack-test reports, fuel logs and monitoring data stored in a document-control system and retrievable within 24 h?",
+        "simplifiedQuestion": "Can you retrieve any MCP compliance record fast?",
+        "reference": "Directive 2015/2193 Art 7",
+        "priority": "Low",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Document Control for MCPs",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf",
+            "xlsx"
+          ],
+          "description": "Document-control index"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf, xlsx",
+        "documentDescriptor": "Document index",
+        "verification_method": [
+          "Document Review",
+          "System Demo"
+        ],
+        "verificationMethods": "Auditor request random doc; operator retrieves.",
+        "nonconformity": {
+          "major": "Docs not retrievable",
+          "minor": "Index outdated"
+        },
+        "majorNonconformity": "Unable to produce 2023 stack test.",
+        "minorNonconformity": "Index last updated 2022.",
+        "whatThisMeans": "Quick retrieval proves compliance on inspection.",
+        "complianceRequires": "- Controlled doc store\n- Index with hyperlinks",
+        "expertTip": "Use SharePoint metadata tags (MCP-ID, Doc-Type).",
+        "recommendedEvidence": "- Index XLS\n- Sample retrieval demo",
+        "recommendedActions": "- Monthly index audit",
+        "sampleResponseTemplate": "Index DC-MCP-01 lists 120 docs; last audit 1 Apr 2025.",
+        "humanInputAnswer": "All MCP docs retrievable via SharePoint.",
+        "llmGeneratedAnswer": "Yes. Document index DC-MCP-01 maintained; retrieval SLA 2 h.\n\nCITATIONS\nIndex DC-MCP-01.",
+        "badExampleAnswer": "Docs on engineer\u2019s laptop."
+      },
+      "question_54": {
+        "id": 54,
+        "old_question_text": "Are operators trained in MCPD obligations and reporting?",
+        "questionText": "Have all staff responsible for MCP operation completed documented training on MCPD requirements, stack-testing protocol and reporting deadlines, with refreshers every 3 years per Article 9?",
+        "simplifiedQuestion": "Are your engine operators trained on MCP rules?",
+        "reference": "Directive 2015/2193 Art 9",
+        "priority": "Low",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Operator Training Records",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Training matrix & certificates"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Training records",
+        "verification_method": [
+          "Document Review",
+          "Interview"
+        ],
+        "verificationMethods": "Auditor samples training certificates.",
+        "nonconformity": {
+          "major": "No MCP training records",
+          "minor": "Certificates expired"
+        },
+        "majorNonconformity": "Operators untrained on MCPD.",
+        "minorNonconformity": "Certs older than 3 years.",
+        "whatThisMeans": "Training ensures correct operation & reporting.",
+        "complianceRequires": "- Training syllabus\n- Attendance certificates\n- Refreshers \u22643 yrs",
+        "expertTip": "Add MCPD module to LMS with auto-reminders.",
+        "recommendedEvidence": "- Training matrix TM-MCP-01",
+        "recommendedActions": "- Schedule refresher courses yearly",
+        "sampleResponseTemplate": "Operators completed MCPD e-learning 12 Feb 2024; certs stored.",
+        "humanInputAnswer": "All staff trained; LMS records attached.",
+        "llmGeneratedAnswer": "Yes. Training matrix TM-MCP-01 shows all 6 operators certified Feb 2024.\n\nCITATIONS\nTraining Cert TC-OP-2024-02.",
+        "badExampleAnswer": "Staff learn on the job."
+      },
+      "question_55": {
+        "id": 55,
+        "old_question_text": "Has a permit or registration update been issued post-upgrade?",
+        "questionText": "When MCPs are upgraded or fuel changed, has the operator applied for permit variation or re-registration before recommissioning, per Article 5(4)?",
+        "simplifiedQuestion": "Did you update the permit after upgrades?",
+        "reference": "Directive 2015/2193 Art 5(4)",
+        "priority": "Medium",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Permit Variation for Upgrades",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Variation application & approval"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Variation approval",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks variation ref vs equipment list.",
+        "nonconformity": {
+          "major": "Upgrade without permit variation",
+          "minor": "Variation submitted late"
+        },
+        "majorNonconformity": "Fuel switch to HVO unreported.",
+        "minorNonconformity": "Variation approved post-commission.",
+        "whatThisMeans": "Upgrades can change ELV applicability; authority must approve.",
+        "complianceRequires": "- Variation form\n- Approval letter",
+        "expertTip": "Log variation number in inventory sheet.",
+        "recommendedEvidence": "- Variation VAR-24-03",
+        "recommendedActions": "- Submit variation 3 months pre-upgrade",
+        "sampleResponseTemplate": "Variation VAR-24-03 approved 30 Apr 2024 for SCR install.",
+        "humanInputAnswer": "Yes; variation approved before upgrade.",
+        "llmGeneratedAnswer": "Yes. Variation VAR-24-03 approved 30-Apr-2024 covers SCR retrofit.\n\nCITATIONS\nApproval Letter VAR-24-03.",
+        "badExampleAnswer": "Authority will understand later."
+      },
+      "question_56": {
+        "id": 56,
+        "old_question_text": "Do temporary MCPs meet Article 6(7) conditions?",
+        "questionText": "For mobile or rental generators on site \u2264 500 h yr, do emission tests confirm NO\u2093 meets national short-term limit (DE/AT/FR 1500 mg Nm\u00b3; IE/UK 1900 mg Nm\u00b3), and are deployment records kept?",
+        "simplifiedQuestion": "Do rental gensets meet short-term NO\u2093 limits?",
+        "reference": "Directive 2015/2193 Art 6(7)",
+        "reference_nat": {
+          "Germany": "44. BImSchV Anlage 2 Zeile 10",
+          "Ireland": "EPA Mobile Gen Note 2019",
+          "UK": "DEFRA MCP Guidance PG1/05",
+          "Austria": "BGBl II 75/2018 Anlage 1 Zeile 10",
+          "France": "Arr\u00eat\u00e9 30/08/2018 Tableau C"
+        },
+        "limits": {
+          "parameter": "NOx",
+          "units": "mg/Nm\u00b3 dry @3 % O\u2082",
+          "category": "Mobile MCP \u2264500 h yr",
+          "values": {
+            "Germany": 1500,
+            "Ireland": 1900,
+            "UK": 1900,
+            "Austria": 1500,
+            "France": 1500
+          }
+        },
+        "priority": "Medium",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Mobile Generator Compliance",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Emission test & runtime log"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Mobile genset compliance pack",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks NO\u2093 test vs limit.",
+        "nonconformity": {
+          "major": "NO\u2093 above limit",
+          "minor": "Runtime logs missing"
+        },
+        "majorNonconformity": "Test 2100 mg Nm\u00b3 vs IE limit 1900.",
+        "minorNonconformity": "Genset runtime not recorded.",
+        "whatThisMeans": "Mobile sets must meet short-term limits even if low hours.",
+        "complianceRequires": "- Emission test cert\n- Runtime log < 500 h",
+        "expertTip": "Use rental contract to demand compliant gensets.",
+        "recommendedEvidence": "- Test cert\n- Runtime log",
+        "recommendedActions": "- Reject gensets failing tests",
+        "sampleResponseTemplate": "Rental GEN-R-02 NO\u2093 1450 mg Nm\u00b3 (pass); runtime 120 h 2024.",
+        "humanInputAnswer": "Yes; all mobile sets pass limits.",
+        "llmGeneratedAnswer": "Yes. GEN-R-02 test 1450 mg Nm\u00b3 < IE limit 1900; runtime 120 h.\n\nCITATIONS\nTest Cert TC-GEN-R-02.",
+        "badExampleAnswer": "Rental supplier says engines are clean."
+      },
+      "question_57": {
+        "id": 57,
+        "old_question_text": "Are noise and vibration impacts considered for MCPs?",
+        "questionText": "Has a noise impact assessment covered MCP operation and identified mitigation\u2014acoustic enclosures, barriers, anti-vibration mounts\u2014ensuring compliance with national Environmental Noise Directive transposition limits?",
+        "simplifiedQuestion": "Have you assessed & mitigated MCP noise?",
+        "reference": "END 2002/49/EC & national regs",
+        "priority": "Low",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "MCP Noise Assessment",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Noise impact report"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Noise assessment & mitigation",
+        "verification_method": [
+          "Document Review",
+          "Site Walk-through"
+        ],
+        "verificationMethods": "Auditor checks barrier spec vs model.",
+        "nonconformity": {
+          "major": "Noise exceeds limit",
+          "minor": "No vibration mounts"
+        },
+        "majorNonconformity": "Night-time noise 50 dBA > limit 45.",
+        "minorNonconformity": "UPS vibration not assessed.",
+        "whatThisMeans": "Noise control protects residents & avoids complaints.",
+        "complianceRequires": "- Noise model\n- Mitigation spec\n- Compliance monitoring",
+        "expertTip": "Install permanent noise monitor at boundary.",
+        "recommendedEvidence": "- Noise model report NM-MCP-04",
+        "recommendedActions": "- Retrofit silencers on stacks",
+        "sampleResponseTemplate": "Noise model NM-MCP-04 predicts 42 dBA at night.",
+        "humanInputAnswer": "Yes; barriers & enclosures installed.",
+        "llmGeneratedAnswer": "Yes. Boundary noise 42 dBA < 45 dBA limit after barriers.\n\nCITATIONS\nNoise Report NM-MCP-04.",
+        "badExampleAnswer": "Engines are noisy but site is industrial."
+      },
+      "question_58": {
+        "id": 58,
+        "old_question_text": "Are there plans for MCP decommissioning or replacement?",
+        "questionText": "Does the operator keep a decommissioning or replacement plan for each MCP, including hazardous-waste handling, oil drain, and soil sampling, reviewed every 5 years?",
+        "simplifiedQuestion": "Do you have a plan to retire old engines safely?",
+        "reference": "Directive 2015/2193 Art 5",
+        "priority": "Low",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "MCP Decommissioning Plan",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Decommissioning plan"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "MCP closure plan",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor reviews plan & review log.",
+        "nonconformity": {
+          "major": "No plan",
+          "minor": "Plan not updated"
+        },
+        "majorNonconformity": "Plan missing.",
+        "minorNonconformity": "Plan last reviewed 2016.",
+        "whatThisMeans": "Proper retirement prevents soil contamination.",
+        "complianceRequires": "- Plan\n- Review log\n- Waste routes",
+        "expertTip": "Tie plan to financial provision for clean-up.",
+        "recommendedEvidence": "- Plan DOC-DECOM-01",
+        "recommendedActions": "- Review after each major upgrade",
+        "sampleResponseTemplate": "Plan DOC-DECOM-01 Rev2 July 2024.",
+        "humanInputAnswer": "Yes; plan updated 2024.",
+        "llmGeneratedAnswer": "Yes. MCP Decommissioning Plan Rev2 (2024-07) covers tank drain & soil sampling.\n\nCITATIONS\nDOC-DECOM-01 Rev2.",
+        "badExampleAnswer": "We\u2019ll scrap engines when obsolete."
+      },
+      "question_59": {
+        "id": 59,
+        "old_question_text": "Is fuel switching recorded and reported to authority?",
+        "questionText": "When fuel type is changed (e.g., diesel to HVO), does the operator notify the authority, update the inventory and re-calculate ELV applicability under Article 8?",
+        "simplifiedQuestion": "Do you log & report fuel switches?",
+        "reference": "Directive 2015/2193 Art 8",
+        "priority": "Low",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Fuel Switching Notification",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "pdf"
+          ],
+          "description": "Fuel-switch notification letter"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "pdf",
+        "documentDescriptor": "Notification letter",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks inventory vs fuel.",
+        "nonconformity": {
+          "major": "Fuel switch unreported",
+          "minor": "Inventory not updated"
+        },
+        "majorNonconformity": "Switch to HVO not notified.",
+        "minorNonconformity": "Inventory still says diesel.",
+        "whatThisMeans": "Fuel change may alter ELVs & monitoring.",
+        "complianceRequires": "- Notify authority\n- Update inventory\n- Re-assess ELVs",
+        "expertTip": "Attach new fuel analysis with notification.",
+        "recommendedEvidence": "- Notification letter",
+        "recommendedActions": "- Update EMS when fuel contract changes",
+        "sampleResponseTemplate": "Notification letter FS-2025-01 sent 12 Jan 2025 switching to HVO.",
+        "humanInputAnswer": "Yes; authority notified of HVO switch.",
+        "llmGeneratedAnswer": "Yes. Letter FS-2025-01 sent 2025-01-12; inventory updated.\n\nCITATIONS\nLetter FS-2025-01.",
+        "badExampleAnswer": "Fuel type is operational detail."
+      },
+      "question_60": {
+        "id": 60,
+        "old_question_text": "Is permit renewal scheduled and tracked for each MCP?",
+        "questionText": "Is there a compliance calendar ensuring each MCP registration/permit is renewed before expiry and that renewal applications are lodged \u22656 months ahead?",
+        "simplifiedQuestion": "Do you track MCP permit-renewal deadlines?",
+        "reference": "Directive 2015/2193 Art 5",
+        "priority": "High",
+        "stepSection": "MCPD Step 2",
+        "recommendationTitle": "Permit Renewal Tracker",
+        "document_requirements": {
+          "required": true,
+          "accepted_types": [
+            "xlsx"
+          ],
+          "description": "Renewal schedule & reminders"
+        },
+        "docRequired": "Yes",
+        "acceptedFiles": "xlsx",
+        "documentDescriptor": "Renewal calendar",
+        "verification_method": [
+          "Document Review"
+        ],
+        "verificationMethods": "Auditor checks tracker & reminders.",
+        "nonconformity": {
+          "major": "Renewal missed",
+          "minor": "Tracker outdated"
+        },
+        "majorNonconformity": "GEN-02 permit expired.",
+        "minorNonconformity": "Reminder dates wrong.",
+        "whatThisMeans": "Expired permits invalidate operation.",
+        "complianceRequires": "- Renewal tracker\n- Email reminders",
+        "expertTip": "Integrate tracker with Outlook/CMMS alerts.",
+        "recommendedEvidence": "- Tracker XLS",
+        "recommendedActions": "- Review tracker monthly",
+        "sampleResponseTemplate": "Tracker shows GEN-01 renewal due 2029-03-31; reminder sent.",
+        "humanInputAnswer": "Yes; tracker PT-MCP-01 maintained.",
+        "llmGeneratedAnswer": "Yes. Renewal tracker PT-MCP-01 updated monthly; all permits in date.\n\nCITATIONS\nTracker PT-MCP-01, Row 4.",
+        "badExampleAnswer": "We\u2019ll renew when authority emails."
+      }
+    }
+  }
+}

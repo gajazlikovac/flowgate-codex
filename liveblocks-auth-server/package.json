@@ -1,0 +1,23 @@
+{
+    "name": "liveblocks-auth-server",
+    "version": "1.0.0",
+    "main": "liveblocks-auth-server.js",
+    "scripts": {
+      "start": "node liveblocks-auth-server.js",
+      "dev": "nodemon liveblocks-auth-server.js"
+    },
+    "dependencies": {
+      "@liveblocks/node": "^1.6.0",
+      "cors": "^2.8.5",
+      "dotenv": "^16.3.1",
+      "express": "^4.18.2",
+      "jsonwebtoken": "^9.0.2",
+      "jwks-rsa": "^3.1.0"
+    },
+    "devDependencies": {
+      "nodemon": "^3.0.1"
+    },
+    "engines": {
+      "node": ">=18.0.0"
+    }
+  }

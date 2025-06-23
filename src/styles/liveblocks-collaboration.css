@@ -1,0 +1,177 @@
+/* src/styles/liveblocks-collaboration.css */
+/* Collaborator avatars */
+.collaboration-panel {
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .collaboration-panel:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .avatar-stack {
+    display: flex;
+    margin-top: 8px;
+  }
+  
+  .collaborator-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: -8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+    position: relative;
+    transition: transform 0.2s ease;
+  }
+  
+  .collaborator-avatar:hover {
+    transform: translateY(-4px);
+    z-index: 10;
+  }
+  
+  /* Task cards with collaborative indicators */
+  .task-card {
+    position: relative;
+  }
+  
+  .task-card.being-edited {
+    box-shadow: 0 0 0 2px #ff9800, 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-card.being-viewed {
+    background-color: #fcfcfc;
+  }
+  
+  /* Edit indicators */
+  .edit-indicator {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #ff9800;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    animation: pulse-edit 2s infinite;
+  }
+  
+  .view-indicator {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #2196f3;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+  }
+  
+  /* Task movement indicators */
+  .column-drop-target {
+    background-color: rgba(200, 230, 255, 0.4);
+    border: 2px dashed #2196f3;
+    transition: all 0.2s ease;
+  }
+  
+  .task-card.dragging {
+    opacity: 0.5;
+    transform: rotate(2deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Task viewers section */
+  .task-viewers {
+    margin-top: 16px;
+    padding: 12px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  
+  .viewer-avatars {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  
+  .viewer-avatar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .viewer-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #4caf50;
+    margin-right: 4px;
+  }
+  
+  /* Animations */
+  @keyframes pulse-edit {
+    0% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(255, 152, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0); }
+  }
+  
+  @keyframes pulse-view {
+    0% { box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(33, 150, 243, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(33, 150, 243, 0); }
+  }
+  
+  @keyframes highlight-task {
+    0% { background-color: rgba(255, 251, 230, 0.8); }
+    100% { background-color: white; }
+  }
+  
+  .task-highlight {
+    animation: highlight-task 2s ease;
+  }
+  
+  /* Recently updated indicator */
+  .recently-updated::after {
+    content: "Updated";
+    position: absolute;
+    top: -8px;
+    right: 10px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    animation: fade-out 3s forwards;
+  }
+  
+  @keyframes fade-out {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  /* Spinner animation */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .spinner {
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    border-top: 3px solid white;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+  }
